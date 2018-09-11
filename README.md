@@ -1,2 +1,2 @@
-# gleif
+# GLEIF
 The Global Legal Entity Identifier Foundation (GLEIF) is tasked to support the implementation and use of the Legal Entity Identifier (LEI). The Legal Entity Identifier (LEI) enables clear and unique identification of legal entities engaging in financial transactions. LEI data is a good open data source for processing large XMLs. Download the GLEIF Concatenated File in zipped XML format for advanced users.
