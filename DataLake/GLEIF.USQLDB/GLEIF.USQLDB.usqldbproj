@@ -50,14 +50,10 @@
     <Folder Include="Procedure" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Deploy.Local-machine.ps1">
-    </None>
-    <None Include="GetUSQLDBDeploymentSDK.ps1">
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Deploy.Cluster.ps1">
-    </None>
+    <None Include="Build-USQLDBProj.ps1"/>
+    <None Include="Deploy-RemoteCluster.ps1"/>
+    <None Include="Deploy-LocalMachine.ps1"/>
+    <None Include="Get-USQLDBDeploymentSDK.ps1"/>
   </ItemGroup>
   <Import Project="$(USQLSDKPath)\USqlDBProject.targets" Condition="'$(USQLSDKPath)' != '' And Exists('$(USQLSDKPath)\USqlDBProject.targets')" />
 </Project>

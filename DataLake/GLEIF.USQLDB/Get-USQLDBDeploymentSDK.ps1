@@ -5,7 +5,7 @@
     PowerShell command line support for deploying U-SQL database package(.usqldbpack file) will come soon.
 
     Example :
-        GetUSQLDBDeploymentSDK.ps1 -AzureSDK "AzureSDKFolderPath" -DBDeploymentTool "DBDeploymentToolFolderPath"
+        Get-USQLDBDeploymentSDK.ps1 -AzureSDK "AzureSDKFolderPath" -DBDeploymentTool "DBDeploymentToolFolderPath"
 #>
 
 param (

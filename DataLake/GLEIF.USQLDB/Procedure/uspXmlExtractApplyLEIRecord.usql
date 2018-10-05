@@ -20,7 +20,7 @@ BEGIN
     
 
 ///*
-// Write results to XML-lines
+// Write (intermediate) result to XML-lines
 OUTPUT
     @extractLEIRecord
 TO @OutputFileXml
