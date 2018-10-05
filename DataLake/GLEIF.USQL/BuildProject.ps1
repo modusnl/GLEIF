@@ -1,7 +1,7 @@
 ﻿# https://blogs.msdn.microsoft.com/azuredatalake/2017/10/24/continuous-integration-made-easy-with-msbuild-support-for-u-sql-preview/
 # https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-cicd-overview#build-u-sql-project
 Param(
-    $USQLProject = 'GLEIF.USQL.usqldbproj',
+    $USQLProject = 'GLEIF.USQL.usqlproj',
     $USQLTargetType = 'SyntaxCheck'
 )
 
@@ -9,7 +9,7 @@ Clear-Host
 
 # Initialize USQL variables
 $USQLDataRoot = "$env:LOCALAPPDATA\USQLDataRoot"
-$USQLSDKPath = "$env:USERPROFILE\.nuget\packages\Microsoft.Azure.DataLake.USQL.SDK\1.3.180620\build\runtime"
+$USQLSDKPath = "$env:USERPROFILE\.nuget\packages\Microsoft.Azure.DataLake.USQL.SDK\1.4.180926\build\runtime"
 $LocalRunHelper = "$USQLSDKPath\LocalRunHelper.exe"
 $PackageDeploymentTool = "$USQLSDKPath\PackageDeploymentTool.exe"
 

@@ -25,6 +25,8 @@
     <Folder Include="Test" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="SubmitUSQL.Cluster.ps1">
+    </None>
     <None Include="BuildProject.ps1">
     </None>
     <Content Include="packages.config">
@@ -36,14 +38,6 @@
   <ItemGroup>
     <Script Include="Test\Test-uspXmlExtractProcessLEIRecord.usql" />
     <Script Include="Test\Test-uspXmlExtractApplyLEIRecord.usql" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\GLEIF.USQLDB\GLEIF.USQLDB.usqldbproj">
-      <Name>GLEIF.USQLDB</Name>
-      <Project>{2aac3992-a673-4e81-a74c-ed8809336522}</Project>
-      <Private>True</Private>
-      <Database>GLEIF.USQLDB</Database>
-    </ProjectReference>
   </ItemGroup>
   <!-- check for SDK Build target in current path then in USQLSDKPath-->
   <Import Project="UsqlSDKBuild.targets" Condition="Exists('UsqlSDKBuild.targets')" />

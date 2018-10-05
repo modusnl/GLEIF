@@ -42,6 +42,8 @@ Function Main()
 
 	SubmitAnalyticsJob "Query"
 
+	SubmitAnalyticsJob "Test"
+
     Write-Host "***********************************************************************"
     Write-Output "Finished deployment..."
 }

@@ -55,5 +55,9 @@
     <None Include="GetUSQLDBDeploymentSDK.ps1">
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Deploy.Cluster.ps1">
+    </None>
+  </ItemGroup>
   <Import Project="$(USQLSDKPath)\USqlDBProject.targets" Condition="'$(USQLSDKPath)' != '' And Exists('$(USQLSDKPath)\USqlDBProject.targets')" />
 </Project>

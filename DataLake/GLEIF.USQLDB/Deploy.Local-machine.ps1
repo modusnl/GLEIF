@@ -9,7 +9,7 @@ Clear-Host
 
 # Initialize USQL variables
 $USQLDataRoot = "$env:LOCALAPPDATA\USQLDataRoot"
-$USQLSDKPath = "$env:USERPROFILE\.nuget\packages\Microsoft.Azure.DataLake.USQL.SDK\1.3.180620\build\runtime"
+$USQLSDKPath = "$env:USERPROFILE\.nuget\packages\Microsoft.Azure.DataLake.USQL.SDK\1.4.180926\build\runtime"
 $LocalRunHelper = "$USQLSDKPath\LocalRunHelper.exe"
 $PackageDeploymentTool = "$USQLSDKPath\PackageDeploymentTool.exe"
 

@@ -19,6 +19,10 @@ if ([string]::IsNullOrEmpty($workingfolder))
     $scriptpath = $MyInvocation.MyCommand.Path
     $workingfolder = Split-Path $scriptpath
 }
+else
+{
+    New-Item $workingfolder -ItemType Directory -ErrorAction SilentlyContinue
+}
 cd $workingfolder
 
 echo "workingfolder=$workingfolder, outputfolder=$outputfolder"
@@ -43,6 +47,7 @@ Expand-Archive Microsoft.Rest.ClientRuntime.Azure.3.3.7.zip -DestinationPath Mic
 Expand-Archive Microsoft.Rest.ClientRuntime.Azure.Authentication.2.3.3.zip -DestinationPath Microsoft.Rest.ClientRuntime.Azure.Authentication.2.3.3 -Force
 Expand-Archive Newtonsoft.Json.6.0.8.zip -DestinationPath Newtonsoft.Json.6.0.8 -Force
 Expand-Archive USQLSDK.zip -DestinationPath USQLSDK -Force
+
 
 echo "Copy required DLLs to output folder..."
 
