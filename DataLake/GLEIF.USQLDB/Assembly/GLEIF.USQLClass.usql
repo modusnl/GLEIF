@@ -1,0 +1,11 @@
+﻿// This U-SQL script defines the assembly GLEIF.USQLClass
+// The source code for GLEIF.USQLClass is in GLEIF.USQLClass project
+// DatabaseProject references GLEIF.USQLClass reference, removing this reference fails build
+// DROP Statement is not supported during public preview, will be supported soon.
+
+//DROP ASSEMBLY IF EXISTS [GLEIF.USQLClass];
+CREATE ASSEMBLY IF NOT EXISTS [GLEIF.USQLClass]
+FROM @_DeployTempDirectory + @"/GLEIF.USQLClass/GLEIF.USQLClass.dll"
+WITH ADDITIONAL FILES = (
+    NODEPLOY @_DeployTempDirectory + @"/GLEIF.USQLClass/GLEIF.USQLClass.pdb"
+);

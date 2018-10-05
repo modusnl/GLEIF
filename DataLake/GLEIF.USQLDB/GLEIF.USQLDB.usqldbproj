@@ -1,0 +1,59 @@
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>2aac3992-a673-4e81-a74c-ed8809336522</ProjectGuid>
+    <OutputType>File</OutputType>
+    <AssemblyName>GLEIF.USQLDB.usqldbpack</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <Name>GLEIF.USQLDB</Name>
+    <RootNamespace>GLEIF.USQLDB</RootNamespace>
+    <AllowDropStatement>False</AllowDropStatement>
+    <AllowDataDropStatement>False</AllowDataDropStatement>
+    <IncludeAssemblyPDBFile>True</IncludeAssemblyPDBFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>false</DebugSymbols>
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Script Include="Assembly\GLEIF.USQLClass.usql">
+      <SubType>Assembly</SubType>
+    </Script>
+    <None Include="Drop-Database.usql" />
+    <Script Include="Procedure\uspXmlExtractApplyLEIRecord.usql">
+      <SubType>Procedure</SubType>
+    </Script>
+    <Script Include="Procedure\uspXmlExtractProcessLEIRecord.usql">
+      <SubType>Procedure</SubType>
+    </Script>
+    <Script Include="Schema\gleif.usql">
+      <SubType>Schema</SubType>
+    </Script>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GLEIF.USQLClass\GLEIF.USQLClass.csproj">
+      <Name>GLEIF.USQLClass</Name>
+      <Project>{2df705dc-1bb1-475e-8b50-b7cae4261104}</Project>
+      <Private>True</Private>
+      <TargetDir>GLEIF.USQLClass</TargetDir>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assembly" />
+    <Folder Include="Schema" />
+    <Folder Include="Procedure" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Deploy.Local-machine.ps1">
+    </None>
+    <None Include="GetUSQLDBDeploymentSDK.ps1">
+    </None>
+  </ItemGroup>
+  <Import Project="$(USQLSDKPath)\USqlDBProject.targets" Condition="'$(USQLSDKPath)' != '' And Exists('$(USQLSDKPath)\USqlDBProject.targets')" />
+</Project>

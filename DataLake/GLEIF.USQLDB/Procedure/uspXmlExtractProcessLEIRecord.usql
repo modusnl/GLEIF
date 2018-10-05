@@ -1,0 +1,96 @@
+//DROP PROCEDURE IF EXISTS gleif.uspXmlExtractProcessLEIRecord;
+CREATE PROCEDURE IF NOT EXISTS gleif.uspXmlExtractProcessLEIRecord(
+    @InputFile String = @"/GLEIF/20180901-gleif-concatenated-file-lei2.xml"
+)
+AS
+BEGIN
+
+    REFERENCE ASSEMBLY [GLEIF.USQLClass];
+    USING GLEIF.USQLClass;
+
+    // prepare output file name based on input zip
+    DECLARE @OutputFileXml = @InputFile.Replace(".xml", ".LEIRecord.xml");
+    DECLARE @OutputFileTsv = @InputFile.Replace(".xml", ".LEIRecord.Process.tsv");
+
+    // Extract XML-lines based on on the Body element
+    @extractLEIRecord =
+        EXTRACT XmlElement string
+        FROM @InputFile
+        USING new XmlReaderExtractor("lei:LEIRecord");
+
+
+///*
+// Write results to XML-lines
+OUTPUT
+    @extractLEIRecord
+TO @OutputFileXml
+USING Outputters.Text(quoting: false);    
+//*/
+
+
+    // Produce Columns
+    @processLEIRecord =
+        PROCESS
+            @extractLEIRecord
+        PRODUCE 
+            Entity_AssociatedEntity_type string,
+            Entity_AssociatedEntity_AssociatedLei string,
+            Entity_EntityExpirationDate string,
+            Entity_EntityExpirationReason string,
+            Entity_EntityStatus string,
+            Entity_HeadquartersAddress_lang string,
+            Entity_HeadquartersAddress_AdditionalAddressLine string,
+            Entity_HeadquartersAddress_City string,
+            Entity_HeadquartersAddress_Country string,
+            Entity_HeadquartersAddress_FirstAddressLine string,
+            Entity_HeadquartersAddress_PostalCode string,
+            Entity_HeadquartersAddress_Region string,
+            Entity_LegalAddress_lang string,
+            Entity_LegalAddress_AdditionalAddressLine string,
+            Entity_LegalAddress_City string,
+            Entity_LegalAddress_Country string,
+            Entity_LegalAddress_FirstAddressLine string,
+            Entity_LegalAddress_PostalCode string,
+            Entity_LegalAddress_Region string,
+            Entity_LegalForm_EntityLegalFormCode string,
+            Entity_LegalForm_OtherLegalForm string,
+            Entity_LegalJurisdiction string,
+            Entity_LegalName string,
+            Entity_LegalName_lang string,
+            Entity_NextVersion string,
+            Entity_OtherAddresses_OtherAddress_lang string,
+            Entity_OtherAddresses_OtherAddress_type string,
+            Entity_OtherAddresses_OtherAddress_AdditionalAddressLine string,
+            Entity_OtherAddresses_OtherAddress_City string,
+            Entity_OtherAddresses_OtherAddress_Country string,
+            Entity_OtherAddresses_OtherAddress_FirstAddressLine string,
+            Entity_OtherAddresses_OtherAddress_PostalCode string,
+            Entity_OtherAddresses_OtherAddress_Region string,
+            Entity_OtherEntityNames_OtherEntityName string,
+            Entity_OtherEntityNames_OtherEntityName_lang string,
+            Entity_RegistrationAuthority_OtherRegistrationAuthorityID string,
+            Entity_RegistrationAuthority_RegistrationAuthorityEntityID string,
+            Entity_RegistrationAuthority_RegistrationAuthorityID string,
+            Entity_SuccessorEntity_SuccessorEntityName string,
+            Entity_SuccessorEntity_SuccessorLei string,
+            Extension string,
+            Lei string,
+            NextVersion string,
+            Registration_InitialRegistrationDate string,
+            Registration_LastUpdateDate string,
+            Registration_ManagingLOU string,
+            Registration_NextRenewalDate string,
+            Registration_NextVersion string,
+            Registration_RegistrationStatus string,
+            Registration_ValidationAuthority_OtherValidationAuthorityID string,
+            Registration_ValidationAuthority_ValidationAuthorityEntityID string,
+            Registration_ValidationAuthority_ValidationAuthorityID string,
+            Registration_ValidationSources string
+        USING new XmlProcessorGleif();
+
+    // Write columnar result to TSV
+    OUTPUT
+        @processLEIRecord
+    TO @OutputFileTsv
+    USING Outputters.Tsv(outputHeader : true);
+END;

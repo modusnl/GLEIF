@@ -1,0 +1,116 @@
+//DROP PROCEDURE IF EXISTS gleif.uspXmlExtractApplyLEIRecord;
+CREATE PROCEDURE IF NOT EXISTS gleif.uspXmlExtractApplyLEIRecord(
+    @InputFile String = @"/GLEIF/20180901-gleif-concatenated-file-lei2.xml"
+)
+AS
+BEGIN
+
+    REFERENCE ASSEMBLY [GLEIF.USQLClass];
+    USING GLEIF.USQLClass;
+
+    // prepare output file name based on input zip
+    DECLARE @OutputFileXml = @InputFile.Replace(".xml", ".LEIRecord.xml");
+    DECLARE @OutputFileTsv = @InputFile.Replace(".xml", ".LEIRecord.XPath.tsv");
+
+    // Extract XML-lines based on on the Body element
+    @extractLEIRecord =
+        EXTRACT XmlElement string
+        FROM @InputFile
+        USING new XmlReaderExtractor("lei:LEIRecord");
+    
+
+///*
+// Write results to XML-lines
+OUTPUT
+    @extractLEIRecord
+TO @OutputFileXml
+USING Outputters.Text(quoting: false);    
+//*/
+
+
+    // set XmlApplier() constructor variables
+    // see https://www.w3schools.com/xml/xpath_syntax.asp for XPath syntax
+    DECLARE @xmlColumnName string = "XmlElement";
+    DECLARE @namespaceDecls = new SQL.MAP<string, string>{
+                              {"gleif", "http://www.gleif.org/concatenated-file/header-extension/2.0"},
+                              {"lei", "http://www.gleif.org/data/schema/leidata/2016"}
+                              };
+    DECLARE @rowPathLEIRecord string = "/lei:LEIRecord";
+    DECLARE @columnPathsLEIRecord = new SQL.MAP<string, string>{
+                                    {"//lei:Entity/lei:AssociatedEntity/@type", "Entity_AssociatedEntity_type"},
+                                    {"//lei:Entity/lei:AssociatedEntity/lei:AssociatedLEI", "Entity_AssociatedEntity_AssociatedLei"},
+                                    {"//lei:Entity/lei:EntityExpirationDate", "Entity_EntityExpirationDate"},
+                                    {"//lei:Entity/lei:EntityExpirationReason", "Entity_EntityExpirationReason"},
+                                    {"//lei:Entity/lei:EntityStatus", "Entity_EntityStatus"},
+                                    {"//lei:Entity/lei:HeadquartersAddress/@xml:lang", "Entity_HeadquartersAddress_lang"},
+                                    {"//lei:Entity/lei:HeadquartersAddress/lei:AdditionalAddressLine", "Entity_HeadquartersAddress_AdditionalAddressLine"},
+                                    {"//lei:Entity/lei:HeadquartersAddress/lei:City", "Entity_HeadquartersAddress_City"},
+                                    {"//lei:Entity/lei:HeadquartersAddress/lei:Country", "Entity_HeadquartersAddress_Country"},
+                                    {"//lei:Entity/lei:HeadquartersAddress/lei:FirstAddressLine", "Entity_HeadquartersAddress_FirstAddressLine"},
+                                    {"//lei:Entity/lei:HeadquartersAddress/lei:PostalCode", "Entity_HeadquartersAddress_PostalCode"},
+                                    {"//lei:Entity/lei:HeadquartersAddress/lei:Region", "Entity_HeadquartersAddress_Region"},
+                                    {"//lei:Entity/lei:LegalAddress/@xml:lang", "Entity_LegalAddress_lang"},
+                                    {"//lei:Entity/lei:LegalAddress/lei:AdditionalAddressLine", "Entity_LegalAddress_AdditionalAddressLine"},
+                                    {"//lei:Entity/lei:LegalAddress/lei:City", "Entity_LegalAddress_City"},
+                                    {"//lei:Entity/lei:LegalAddress/lei:Country", "Entity_LegalAddress_Country"},
+                                    {"//lei:Entity/lei:LegalAddress/lei:FirstAddressLine", "Entity_LegalAddress_FirstAddressLine"},
+                                    {"//lei:Entity/lei:LegalAddress/lei:PostalCode", "Entity_LegalAddress_PostalCode"},
+                                    {"//lei:Entity/lei:LegalAddress/lei:Region", "Entity_LegalAddress_Region"},
+                                    {"//lei:Entity/lei:LegalForm/lei:EntityLegalFormCode", "Entity_LegalForm_EntityLegalFormCode"},
+                                    {"//lei:Entity/lei:LegalForm/lei:OtherLegalForm", "Entity_LegalForm_OtherLegalForm"},
+                                    {"//lei:Entity/lei:LegalJurisdiction", "Entity_LegalJurisdiction"},
+                                    {"//lei:Entity/lei:LegalName", "Entity_LegalName"},
+                                    {"//lei:Entity/lei:LegalName/@xml:lang", "Entity_LegalName_lang"},
+                                    {"//lei:Entity/lei:NextVersion", "Entity_NextVersion"},
+                                    {"//lei:Entity/lei:OtherAddresses/lei:OtherAddress/@xml:lang", "Entity_OtherAddresses_OtherAddress_lang"},
+                                    {"//lei:Entity/lei:OtherAddresses/lei:OtherAddress/@type", "Entity_OtherAddresses_OtherAddress_type"},
+                                    {"//lei:Entity/lei:OtherAddresses/lei:OtherAddress/lei:AdditionalAddressLine", "Entity_OtherAddresses_OtherAddress_AdditionalAddressLine"},
+                                    {"//lei:Entity/lei:OtherAddresses/lei:OtherAddress/lei:City", "Entity_OtherAddresses_OtherAddress_City"},
+                                    {"//lei:Entity/lei:OtherAddresses/lei:OtherAddress/lei:Country", "Entity_OtherAddresses_OtherAddress_Country"},
+                                    {"//lei:Entity/lei:OtherAddresses/lei:OtherAddress/lei:FirstAddressLine", "Entity_OtherAddresses_OtherAddress_FirstAddressLine"},
+                                    {"//lei:Entity/lei:OtherAddresses/lei:OtherAddress/lei:PostalCode", "Entity_OtherAddresses_OtherAddress_PostalCode"},
+                                    {"//lei:Entity/lei:OtherAddresses/lei:OtherAddress/lei:Region", "Entity_OtherAddresses_OtherAddress_Region"},
+                                    {"//lei:Entity/lei:OtherEntityNames/lei:OtherEntityName", "Entity_OtherEntityNames_OtherEntityName"},
+                                    {"//lei:Entity/lei:OtherEntityNames/lei:OtherEntityName/@xml:lang", "Entity_OtherEntityNames_OtherEntityName_lang"},
+                                    {"//lei:Entity/lei:RegistrationAuthority/lei:OtherRegistrationAuthorityID", "Entity_RegistrationAuthority_OtherRegistrationAuthorityID"},
+                                    {"//lei:Entity/lei:RegistrationAuthority/lei:RegistrationAuthorityEntityID", "Entity_RegistrationAuthority_RegistrationAuthorityEntityID"},
+                                    {"//lei:Entity/lei:RegistrationAuthority/lei:RegistrationAuthorityID", "Entity_RegistrationAuthority_RegistrationAuthorityID"},
+                                    {"//lei:Entity/lei:SuccessorEntity/lei:SuccessorEntityName", "Entity_SuccessorEntity_SuccessorEntityName"},
+                                    {"//lei:Entity/lei:SuccessorEntity/lei:SuccessorLEI", "Entity_SuccessorEntity_SuccessorLei"},
+                                    {"//lei:Extension", "Extension"},
+                                    {"//lei:LEI", "Lei"},
+                                    {"//lei:NextVersion", "NextVersion"},
+                                    {"//lei:Registration/lei:InitialRegistrationDate", "Registration_InitialRegistrationDate"},
+                                    {"//lei:Registration/lei:LastUpdateDate", "Registration_LastUpdateDate"},
+                                    {"//lei:Registration/lei:ManagingLOU", "Registration_ManagingLOU"},
+                                    {"//lei:Registration/lei:NextRenewalDate", "Registration_NextRenewalDate"},
+                                    {"//lei:Registration/lei:NextVersion", "Registration_NextVersion"},
+                                    {"//lei:Registration/lei:RegistrationStatus", "Registration_RegistrationStatus"},
+                                    {"//lei:Registration/lei:ValidationAuthority/lei:OtherValidationAuthorityID", "Registration_ValidationAuthority_OtherValidationAuthorityID"},
+                                    {"//lei:Registration/lei:ValidationAuthority/lei:ValidationAuthorityEntityID", "Registration_ValidationAuthority_ValidationAuthorityEntityID"},
+                                    {"//lei:Registration/lei:ValidationAuthority/lei:ValidationAuthorityID", "Registration_ValidationAuthority_ValidationAuthorityID"},
+                                    {"//lei:Registration/lei:ValidationSources", "Registration_ValidationSources"}
+                                    };
+
+    // XmlApply ColumnMapping to Xml-lines
+    @xmlApplierLEIRecord =
+        SELECT
+            oa.*
+        FROM @extractLEIRecord AS e
+             OUTER APPLY
+                 USING new XmlApplier(
+                       xmlColumnName : @xmlColumnName,
+                       rowPath : @rowPathLEIRecord,
+                       columnPaths : @columnPathsLEIRecord,
+                       namespaceDecls : @namespaceDecls
+                       ) AS oa(Entity_AssociatedEntity_type string, Entity_AssociatedEntity_AssociatedLei string, Entity_EntityExpirationDate string, Entity_EntityExpirationReason string, Entity_EntityStatus string, Entity_HeadquartersAddress_lang string, Entity_HeadquartersAddress_AdditionalAddressLine string, Entity_HeadquartersAddress_City string, Entity_HeadquartersAddress_Country string, Entity_HeadquartersAddress_FirstAddressLine string, Entity_HeadquartersAddress_PostalCode string, Entity_HeadquartersAddress_Region string, Entity_LegalAddress_lang string, Entity_LegalAddress_AdditionalAddressLine string, Entity_LegalAddress_City string, Entity_LegalAddress_Country string, Entity_LegalAddress_FirstAddressLine string, Entity_LegalAddress_PostalCode string, Entity_LegalAddress_Region string, Entity_LegalForm_EntityLegalFormCode string, Entity_LegalForm_OtherLegalForm string, Entity_LegalJurisdiction string, Entity_LegalName string, Entity_LegalName_lang string, Entity_NextVersion string, Entity_OtherAddresses_OtherAddress_lang string, Entity_OtherAddresses_OtherAddress_type string, Entity_OtherAddresses_OtherAddress_AdditionalAddressLine string, Entity_OtherAddresses_OtherAddress_City string, Entity_OtherAddresses_OtherAddress_Country string, Entity_OtherAddresses_OtherAddress_FirstAddressLine string, Entity_OtherAddresses_OtherAddress_PostalCode string, Entity_OtherAddresses_OtherAddress_Region string, Entity_OtherEntityNames_OtherEntityName string, Entity_OtherEntityNames_OtherEntityName_lang string, Entity_RegistrationAuthority_OtherRegistrationAuthorityID string, Entity_RegistrationAuthority_RegistrationAuthorityEntityID string, Entity_RegistrationAuthority_RegistrationAuthorityID string, Entity_SuccessorEntity_SuccessorEntityName string, Entity_SuccessorEntity_SuccessorLei string,
+                               //Extension string,
+                               Lei string, NextVersion string, Registration_InitialRegistrationDate string, Registration_LastUpdateDate string, Registration_ManagingLOU string, Registration_NextRenewalDate string, Registration_NextVersion string, Registration_RegistrationStatus string, Registration_ValidationAuthority_OtherValidationAuthorityID string, Registration_ValidationAuthority_ValidationAuthorityEntityID string, Registration_ValidationAuthority_ValidationAuthorityID string, Registration_ValidationSources string);
+
+
+    // Write columnar result to TSV
+    OUTPUT
+        @xmlApplierLEIRecord
+    TO @OutputFileTsv
+    USING Outputters.Tsv(outputHeader : true);  
+END;

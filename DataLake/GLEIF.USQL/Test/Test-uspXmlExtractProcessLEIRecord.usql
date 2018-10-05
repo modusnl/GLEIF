@@ -1,0 +1,13 @@
+﻿USE DATABASE [GLEIF.USQLDB];
+
+// Local-project Serialize 
+//gleif.uspXmlExtractProcessLEIRecord( "/Data/20180901-gleif-concatenated-file-lei2-Top10.xml");
+
+// Local-machine Serialize 
+gleif.uspXmlExtractProcessLEIRecord( "/GLEIF/20180901-gleif-concatenated-file-lei2-Top10000.xml");
+//gleif.uspXmlExtractProcessLEIRecord( "/GLEIF/20180901-gleif-concatenated-file-lei2.xml");
+//gleif.uspZipXmlExtractProcessLEIRecord( "/GLEIF/20180901-gleif-concatenated-file-lei2-Top10000.zip");
+//gleif.uspZipXmlExtractProcessLEIRecord( "/GLEIF/20180901-gleif-concatenated-file-lei2.zip");
+
+// Remote Serialize
+//gleif.uspZipXmlExtractProcessLEIRecord("/GLEIF/HTTP/2018/09/01/20180901-gleif-concatenated-file-lei2.zip");

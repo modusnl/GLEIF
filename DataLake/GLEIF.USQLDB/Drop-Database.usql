@@ -1,0 +1,3 @@
+// Drop Database in order to achieve Declarative Datbase Development
+// Ideally this would be achieved through Database Compare, when available
+DROP DATABASE IF EXISTS [GLEIF.USQLDB];
