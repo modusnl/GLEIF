@@ -32,7 +32,7 @@ namespace GLEIF.ConsoleApp
         }       
 
 
-        public static void StreamXmlLines(string fileName, string elementName, int elementLimit = -1)
+        public static void WriteXmlLines(string fileName, string elementName, int elementLimit = -1)
         {
             // determine Output File Name based on provide ElementName (after the namespace) 
             string outFileName = 
@@ -148,6 +148,20 @@ namespace GLEIF.ConsoleApp
                 foreach (KeyValuePair<string, string> mapping in mappingXPath)
                 {
                     Console.WriteLine("{0}: {1}", mapping.Value, xmlNode.SelectSingleNode(mapping.Key, nsmanager)?.InnerXml);
+                }
+            }
+        }
+
+                       
+        public static void ReadXmlLines(string fileName)
+        {
+            string XmlLine;
+
+            using (StreamReader reader = File.OpenText(fileName))
+            {
+                while ((XmlLine = reader.ReadLine()) != null)
+                {
+                    ConsoleWriteXPathLEIRecord(XmlLine);
                 }
             }
         }

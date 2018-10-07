@@ -33,25 +33,27 @@ namespace GLEIF.ConsoleApp
             // 2.
             // Parse input file and write all possible XPath references to output, 
             // handy for defining XPath queries later on
-            //XPathExtension.WriteXPathFile(fileName.Replace(".xml", "-Top100.xml"));
+            XPathExtension.WriteXPathFile(fileName.Replace(".xml", "-Top100.xml"));
 
             // 3.
             // Validate using XSD schemas from filesystem
-            //Streaming.ValidateXmlStream(fileName.Replace(".xml", "-Top10000.xml"));
+            Streaming.ValidateXmlStream(fileName.Replace(".xml", "-Top10000.xml"));
             //Streaming.ValidateXmlStream(fileName);
 
             // 4.
             // Stream XML to XmlLines
-            //Streaming.StreamXmlLines(fileName.Replace(".xml", ".xml"), "lei:LEIHeader", 1);
-            //Streaming.StreamXmlLines(fileName.Replace(".xml", ".xml"), "lei:LEIRecord"); // -> 15 mb RAM, regardless of filesize! whole file = ... min
-
-            // 5. ToDo
-            // Streaming option 1: Write LEIRecord to Console via Serialization
-            //Serialization.DeserializeLEIRecord(xmlString);
-
-            // 6. ToDo
-            // Streaming option 2: Write LEIRecord to Console via XPath
-            //Streaming.ConsoleWriteXPathLEIRecord
+            Streaming.WriteXmlLines(fileName.Replace(".xml", "-Top10.xml"), "lei:LEIHeader", 1);
+            Streaming.WriteXmlLines(fileName.Replace(".xml", "-Top10.xml"), "lei:LEIRecord");
+            Streaming.WriteXmlLines(fileName, "lei:LEIHeader", 1);
+            Streaming.WriteXmlLines(fileName, "lei:LEIRecord"); // -> 15 mb RAM, regardless of filesize!
+            
+            // 5.
+            // Streaming option 1: Read the individual XmlLines and write each LEIRecord to Console via Serialization
+            Serialization.ReadXmlLines(fileName.Replace(".xml", "-Top10.LEIRecord.xml"));
+          
+            // 6.
+            // Streaming option 1: Read the individual XmlLines and write each LEIRecord to Console via XPath
+            Streaming.ReadXmlLines(fileName.Replace(".xml", "-Top10.LEIRecord.xml"));
 
             // Closing
             Console.WriteLine("Finished in {0}", stopwatch.Elapsed);

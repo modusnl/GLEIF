@@ -161,5 +161,20 @@ namespace GLEIF.ConsoleApp
             Console.WriteLine("Registration_ValidationAuthority_ValidationAuthorityID: " + (lEIRecord?.Registration?.ValidationAuthority?.ValidationAuthorityID)?.ToString());
             Console.WriteLine("Registration_ValidationSources: " + (lEIRecord?.Registration?.ValidationSources)?.ToString());
         }
+
+
+        // Read file with XmlLines and Deserialize LEIRecords to Console
+        public static void ReadXmlLines(string fileName)
+        {
+            string XmlLine;
+
+            using (StreamReader reader = File.OpenText(fileName))
+            {
+                while((XmlLine = reader.ReadLine()) != null)
+                {
+                    ConsoleWriteLEIRecord(DeserializeLEIRecord(XmlLine));
+                }
+            }
+        }
     }
 }
