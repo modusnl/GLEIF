@@ -4,6 +4,8 @@ This project demonstrates various processing approaches for handling large Xml f
 
 ## Projects
 
+See [Data](/Data/Readme.md) for scripts used for downloading the Data from the public API endpoint, and uploading the files to the Data Lake Store.
+
 See [ConsoleApp](/ConsoleApp/Readme.md) for the .NET Core CommandLineApp as a starting point for deriving some smaller files off the big Xml and lots of valuable .NET methods for Reading, Writing, Validating, Serializing Xml.
 
 See [Database](/Database/Readme.md) for the T-SQL approaches
