@@ -8,7 +8,7 @@
     <ProjectGuid>df7e8620-5cc9-4321-a936-6f49b6eae0ec</ProjectGuid>
     <OutputType>File</OutputType>
     <AssemblyName>Algebra.xml</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <Name>GLEIF.USQL</Name>
     <RootNamespace>GLEIF.USQL</RootNamespace>
     <RuntimeVersion>default</RuntimeVersion>
@@ -27,17 +27,27 @@
   <ItemGroup>
     <None Include="SubmitUSQL.Cluster.ps1">
     </None>
-    <None Include="BuildProject.ps1">
+    <None Include="Build-USQLProj.ps1">
     </None>
-    <Content Include="packages.config">
-      <SubType>Content</SubType>
-    </Content>
+    <None Include="packages.config">
+    </None>
     <None Include="SubmitUSQL.ps1">
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Script Include="Test\Test-uspXmlExtractProcessLEIRecord.usql" />
-    <Script Include="Test\Test-uspXmlExtractApplyLEIRecord.usql" />
+    <None Include="Test\Test-uspXmlExtractProcessLEIRecord.usql" />
+    <None Include="Test\Test-uspXmlExtractApplyLEIRecord.usql" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GLEIF.USQLDB\GLEIF.USQLDB.usqldbproj">
+      <Name>GLEIF.USQLDB</Name>
+      <Project>{2aac3992-a673-4e81-a74c-ed8809336522}</Project>
+      <Private>True</Private>
+      <Database>GLEIF.USQLDB</Database>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Script Include="Test\ThrowException.usql" />
   </ItemGroup>
   <!-- check for SDK Build target in current path then in USQLSDKPath-->
   <Import Project="UsqlSDKBuild.targets" Condition="Exists('UsqlSDKBuild.targets')" />
