@@ -1,5 +1,9 @@
 ﻿# DataLake
 
+This DataLake folder hosts the various U-SQL projects ensembling the U-SQL solution.
+
+For more info about U-SQL in general - and amongst other, many hands-on examples - see [U-SQL](https://github.com/Azure/usql)
+
 ## GLEIF.USQLClass
 
 This project contains the custom developed User Defined Objects (UDO) for processing Xml at the Azure Data Lake.

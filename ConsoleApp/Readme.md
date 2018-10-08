@@ -1,4 +1,4 @@
-﻿# Console App 
+﻿# Console App
 
 This .NET Core Console app hosts losts of code snippets. Core function is crunching the big Xml file into several smaller files for rapid development purposes.
 
@@ -6,7 +6,7 @@ Besides that, it is mainly used for design time exploration of usable code snipp
 
 ## Main
 
-Make sure the ../Data folder contains the data file as refered to in `string fileName`. 
+Make sure the ../Data folder contains the data file as refered to in `string fileName`.
 The following methods can be toggled on/off based on your needs. Dive into the methods for more details.
 
 1. `WriteSubsets(fileName)` will write Subsets based on the serialized Full Xml. This method actually only needs to run once and can be commented-out after initial run.
@@ -27,6 +27,6 @@ Within the prompt, run the following commands for generating the .NET classes fr
 * `xsd.exe /c 2017-03-16_rr-cdf-v1-1.xsd /namespace:GLEIF.rr`
 
 Alter the genrated .NET class for LEI as follows;
-* Add `using System.Collections.Generic;`
-* Change `LEIRecordType[]` to `List<LEIRecord>` for richer filter options
-* add line 1445: `[System.Xml.Serialization.XmlRootAttribute(Namespace="http://www.gleif.org/data/schema/leidata/2016", ElementName = "LEIRecord", IsNullable = true)]` for using the same .NET class for serializing just a LEIRecord in addition to the full LEIData object
+1. Add `using System.Collections.Generic;`
+2. Change `LEIRecordType[]` to `List<LEIRecord>` for richer filter options
+3. add line 1445: `[System.Xml.Serialization.XmlRootAttribute(Namespace="http://www.gleif.org/data/schema/leidata/2016", ElementName = "LEIRecord", IsNullable = true)]` for using the same .NET class for serializing just a LEIRecord in addition to the full LEIData object
