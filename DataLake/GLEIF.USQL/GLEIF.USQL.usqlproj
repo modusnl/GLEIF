@@ -22,6 +22,8 @@
     <OutputPath>bin\Release\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
+    <Folder Include="Data" />
+    <Folder Include="Extract" />
     <Folder Include="Test" />
   </ItemGroup>
   <ItemGroup>
@@ -39,15 +41,22 @@
     <None Include="Test\Test-uspXmlExtractApplyLEIRecord.usql" />
   </ItemGroup>
   <ItemGroup>
+    <Script Include="Extract\Extract-LEIHeader.usql" />
+    <Script Include="Extract\Extract-LEIRecord.usql" />
+    <Script Include="Test\Test-uspXmlExtractLEIRecord.usql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Data\20180901-gleif-concatenated-file-lei2-Top10.xml">
+      <SubType>Content</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\GLEIF.USQLDB\GLEIF.USQLDB.usqldbproj">
       <Name>GLEIF.USQLDB</Name>
       <Project>{2aac3992-a673-4e81-a74c-ed8809336522}</Project>
       <Private>True</Private>
       <Database>GLEIF.USQLDB</Database>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Script Include="Test\ThrowException.usql" />
   </ItemGroup>
   <!-- check for SDK Build target in current path then in USQLSDKPath-->
   <Import Project="UsqlSDKBuild.targets" Condition="Exists('UsqlSDKBuild.targets')" />

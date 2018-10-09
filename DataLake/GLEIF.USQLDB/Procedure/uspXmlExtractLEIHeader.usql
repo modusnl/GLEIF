@@ -1,0 +1,26 @@
+//DROP PROCEDURE IF EXISTS gleif.uspXmlExtractLEIHeader;
+CREATE PROCEDURE IF NOT EXISTS gleif.uspXmlExtractLEIHeader(
+    @InputFile String = @"/GLEIF/20180901-gleif-concatenated-file-lei2.xml"
+)
+AS
+BEGIN
+
+    REFERENCE ASSEMBLY [GLEIF.USQLClass];
+    USING GLEIF.USQLClass;
+
+    // prepare output file name based on input zip
+    DECLARE @OutputFileXml = @InputFile.Replace(".xml", ".LEIHeader.xml");
+
+    // Extract XML-lines based on on the Body element
+    @extractLEIHeader =
+        EXTRACT XmlElement string
+        FROM @InputFile
+        USING new XmlReaderExtractor("lei:LEIHeader");    
+
+    // Write Extract to XML-lines
+    OUTPUT
+        @extractLEIHeader
+    TO @OutputFileXml
+    USING Outputters.Text(quoting: false);    
+
+END;

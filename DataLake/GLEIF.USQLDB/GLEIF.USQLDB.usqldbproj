@@ -12,6 +12,7 @@
     <AllowDropStatement>False</AllowDropStatement>
     <AllowDataDropStatement>False</AllowDataDropStatement>
     <IncludeAssemblyPDBFile>True</IncludeAssemblyPDBFile>
+    <TargetDirectorySeparator>/</TargetDirectorySeparator>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -26,6 +27,8 @@
       <SubType>Assembly</SubType>
     </Script>
     <None Include="Drop-Database.usql" />
+    <Script Include="Procedure\uspXmlExtractLEIHeader.usql" />
+    <Script Include="Procedure\uspXmlExtractLEIRecord.usql" />
     <Script Include="Procedure\uspXmlExtractApplyLEIRecord.usql">
       <SubType>Procedure</SubType>
     </Script>
@@ -50,10 +53,10 @@
     <Folder Include="Procedure" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Build-USQLDBProj.ps1"/>
-    <None Include="Deploy-RemoteCluster.ps1"/>
-    <None Include="Deploy-LocalMachine.ps1"/>
-    <None Include="Get-USQLDBDeploymentSDK.ps1"/>
+    <None Include="Build-USQLDBProj.ps1" />
+    <None Include="Deploy-RemoteCluster.ps1" />
+    <None Include="Deploy-LocalMachine.ps1" />
+    <None Include="Get-USQLDBDeploymentSDK.ps1" />
   </ItemGroup>
   <Import Project="$(USQLSDKPath)\USqlDBProject.targets" Condition="'$(USQLSDKPath)' != '' And Exists('$(USQLSDKPath)\USqlDBProject.targets')" />
 </Project>

@@ -1,0 +1,724 @@
+<?xml version="1.0" encoding="utf-8"?>
+<lei:LEIData xmlns:gleif="http://www.gleif.org/concatenated-file/header-extension/2.0" xmlns:lei="http://www.gleif.org/data/schema/leidata/2016">
+  <lei:LEIHeader>
+    <lei:ContentDate>2018-09-01T11:00:01+02:00</lei:ContentDate>
+    <lei:FileContent>GLEIF_FULL_PUBLISHED</lei:FileContent>
+    <lei:RecordCount>10</lei:RecordCount>
+    <lei:Extension>
+      <gleif:Sources>
+        <gleif:Source>
+          <gleif:ContentDate>2018-09-01T06:48:43Z</gleif:ContentDate>
+          <gleif:Originator>029200067A7K6CH0H586</gleif:Originator>
+          <gleif:RecordCount>267</gleif:RecordCount>
+        </gleif:Source>
+        <gleif:Source>
+          <gleif:ContentDate>2018-08-31T19:05:01.000Z</gleif:ContentDate>
+          <gleif:Originator>097900BEFH0000000217</gleif:Originator>
+          <gleif:RecordCount>1456</gleif:RecordCount>
+        </gleif:Source>
+        <gleif:Source>
+          <gleif:ContentDate>2018-08-31T21:44:05Z</gleif:ContentDate>
+          <gleif:Originator>213800WAVVOPS85N2205</gleif:Originator>
+          <gleif:RecordCount>162252</gleif:RecordCount>
+        </gleif:Source>
+        <gleif:Source>
+          <gleif:ContentDate>2018-08-31T23:00:10Z</gleif:ContentDate>
+          <gleif:Originator>222100T6ICDIY8V4VX70</gleif:Originator>
+          <gleif:RecordCount>7205</gleif:RecordCount>
+        </gleif:Source>
+        <gleif:Source>
+          <gleif:ContentDate>2018-08-31T17:30:11.000Z</gleif:ContentDate>
+          <gleif:Originator>253400M18U5TB02TW421</gleif:Originator>
+          <gleif:RecordCount>1085</gleif:RecordCount>
+        </gleif:Source>
+        <gleif:Source>
+          <gleif:ContentDate>2018-08-30T23:59:59+02:00</gleif:ContentDate>
+          <gleif:Originator>259400L3KBYEVNHEJF55</gleif:Originator>
+          <gleif:RecordCount>15461</gleif:RecordCount>
+        </gleif:Source>
+        <gleif:Source>
+          <gleif:ContentDate>2018-09-01T08:20:00.049+08:00</gleif:ContentDate>
+          <gleif:Originator>300300KDIZ11PV2GH547</gleif:Originator>
+          <gleif:RecordCount>1278</gleif:RecordCount>
+        </gleif:Source>
+        <gleif:Source>
+          <gleif:ContentDate>2018-08-31T00:00:00+01:00</gleif:ContentDate>
+          <gleif:Originator>315700LK78Z7C0WMIL03</gleif:Originator>
+          <gleif:RecordCount>14159</gleif:RecordCount>
+        </gleif:Source>
+        <gleif:Source>
+          <gleif:ContentDate>2018-08-31T18:00:00Z</gleif:ContentDate>
+          <gleif:Originator>335800FVH4MOKZS9VH40</gleif:Originator>
+          <gleif:RecordCount>11090</gleif:RecordCount>
+        </gleif:Source>
+        <gleif:Source>
+          <gleif:ContentDate>2018-09-01T06:00:33+00:00</gleif:ContentDate>
+          <gleif:Originator>353800279ADEFGKNTV65</gleif:Originator>
+          <gleif:RecordCount>8117</gleif:RecordCount>
+        </gleif:Source>
+        <gleif:Source>
+          <gleif:ContentDate>2018-09-01T10:00:16+02:00</gleif:ContentDate>
+          <gleif:Originator>378900F4A0A690EA6735</gleif:Originator>
+          <gleif:RecordCount>376</gleif:RecordCount>
+        </gleif:Source>
+        <gleif:Source>
+          <gleif:ContentDate>2018-09-01T08:00:30.211+02:00</gleif:ContentDate>
+          <gleif:Originator>39120001KULK7200U106</gleif:Originator>
+          <gleif:RecordCount>34805</gleif:RecordCount>
+        </gleif:Source>
+        <gleif:Source>
+          <gleif:ContentDate>2018-09-01T00:01:28.143-05:00</gleif:ContentDate>
+          <gleif:Originator>4469000001AVO26P9X86</gleif:Originator>
+          <gleif:RecordCount>851</gleif:RecordCount>
+        </gleif:Source>
+        <gleif:Source>
+          <gleif:ContentDate>2018-09-01T07:00:02Z</gleif:ContentDate>
+          <gleif:Originator>48510000JZ17NWGUA510</gleif:Originator>
+          <gleif:RecordCount>3082</gleif:RecordCount>
+        </gleif:Source>
+        <gleif:Source>
+          <gleif:ContentDate>2018-09-01T04:51:44+02:00</gleif:ContentDate>
+          <gleif:Originator>506700LOLO7M6V0E4247</gleif:Originator>
+          <gleif:RecordCount>4880</gleif:RecordCount>
+        </gleif:Source>
+        <gleif:Source>
+          <gleif:ContentDate>2018-09-01T02:02:10+02:00</gleif:ContentDate>
+          <gleif:Originator>5299000J2N45DDNE4Y28</gleif:Originator>
+          <gleif:RecordCount>129267</gleif:RecordCount>
+        </gleif:Source>
+        <gleif:Source>
+          <gleif:ContentDate>2018-09-01T03:37:47Z</gleif:ContentDate>
+          <gleif:Originator>52990034RLKT0WSOAM90</gleif:Originator>
+          <gleif:RecordCount>25905</gleif:RecordCount>
+        </gleif:Source>
+        <gleif:Source>
+          <gleif:ContentDate>2018-09-01T02:31:41+02:00</gleif:ContentDate>
+          <gleif:Originator>529900F6BNUR3RJ2WH29</gleif:Originator>
+          <gleif:RecordCount>17951</gleif:RecordCount>
+        </gleif:Source>
+        <gleif:Source>
+          <gleif:ContentDate>2018-09-01T07:16:29+00:00</gleif:ContentDate>
+          <gleif:Originator>529900T8BM49AURSDO55</gleif:Originator>
+          <gleif:RecordCount>175</gleif:RecordCount>
+        </gleif:Source>
+        <gleif:Source>
+          <gleif:ContentDate>2018-08-31T22:30:05.709Z</gleif:ContentDate>
+          <gleif:Originator>5493001KJTIIGC8Y1R12</gleif:Originator>
+          <gleif:RecordCount>60488</gleif:RecordCount>
+        </gleif:Source>
+        <gleif:Source>
+          <gleif:ContentDate>2018-08-31T23:00:04.112+03:00</gleif:ContentDate>
+          <gleif:Originator>558600FNC30A8J9EGQ54</gleif:Originator>
+          <gleif:RecordCount>298</gleif:RecordCount>
+        </gleif:Source>
+        <gleif:Source>
+          <gleif:ContentDate>2018-09-01T00:05:05+01:00</gleif:ContentDate>
+          <gleif:Originator>635400DZBUIMTBCXGA12</gleif:Originator>
+          <gleif:RecordCount>8628</gleif:RecordCount>
+        </gleif:Source>
+        <gleif:Source>
+          <gleif:ContentDate>2018-09-01T02:00:07.732+02:00</gleif:ContentDate>
+          <gleif:Originator>724500A93Z8V1MJK5349</gleif:Originator>
+          <gleif:RecordCount>90724</gleif:RecordCount>
+        </gleif:Source>
+        <gleif:Source>
+          <gleif:ContentDate>2018-09-01T02:02:43+03:00</gleif:ContentDate>
+          <gleif:Originator>743700OO8O2N3TQKJC81</gleif:Originator>
+          <gleif:RecordCount>22242</gleif:RecordCount>
+        </gleif:Source>
+        <gleif:Source>
+          <gleif:ContentDate>2018-08-31T14:29:53Z</gleif:ContentDate>
+          <gleif:Originator>7478000050A040C0D041</gleif:Originator>
+          <gleif:RecordCount>946</gleif:RecordCount>
+        </gleif:Source>
+        <gleif:Source>
+          <gleif:ContentDate>2018-08-31T17:00:07Z</gleif:ContentDate>
+          <gleif:Originator>789000TVSB96MCOKSB52</gleif:Originator>
+          <gleif:RecordCount>446</gleif:RecordCount>
+        </gleif:Source>
+        <gleif:Source>
+          <gleif:ContentDate>2018-09-01T06:00:00.000+02:00</gleif:ContentDate>
+          <gleif:Originator>815600EAD78C57FCE690</gleif:Originator>
+          <gleif:RecordCount>88592</gleif:RecordCount>
+        </gleif:Source>
+        <gleif:Source>
+          <gleif:ContentDate>2018-09-01T01:10:06.576Z</gleif:ContentDate>
+          <gleif:Originator>9504003253F6C21EE978</gleif:Originator>
+          <gleif:RecordCount>37</gleif:RecordCount>
+        </gleif:Source>
+        <gleif:Source>
+          <gleif:ContentDate>2018-08-31T23:59:59.999+02:00</gleif:ContentDate>
+          <gleif:Originator>959800R2X69K6Y6MX775</gleif:Originator>
+          <gleif:RecordCount>83444</gleif:RecordCount>
+        </gleif:Source>
+        <gleif:Source>
+          <gleif:ContentDate>2018-09-01T01:58:00.000+02:00</gleif:ContentDate>
+          <gleif:Originator>969500Q2MA9VBQ8BG884</gleif:Originator>
+          <gleif:RecordCount>61864</gleif:RecordCount>
+        </gleif:Source>
+        <gleif:Source>
+          <gleif:ContentDate>2018-09-01T23:59:59Z</gleif:ContentDate>
+          <gleif:Originator>9884008RRMX1X5HV6625</gleif:Originator>
+          <gleif:RecordCount>593</gleif:RecordCount>
+        </gleif:Source>
+        <gleif:Source>
+          <gleif:ContentDate>2018-09-01T02:32:45.997Z</gleif:ContentDate>
+          <gleif:Originator>EVK05KS7XY1DEII3R011</gleif:Originator>
+          <gleif:RecordCount>403237</gleif:RecordCount>
+        </gleif:Source>
+      </gleif:Sources>
+    </lei:Extension>
+  </lei:LEIHeader>
+  <lei:LEIRecords>
+    <lei:LEIRecord>
+      <lei:LEI>029200013A5N6ZD0F605</lei:LEI>
+      <lei:Entity>
+        <lei:LegalName xml:lang="en">AFRINVEST SECURITIES LIMITED</lei:LegalName>
+        <lei:OtherEntityNames>
+          <lei:OtherEntityName xml:lang="fr" type="ALTERNATIVE_LANGUAGE_LEGAL_NAME">AFRINVEST SECURITIES LIMITED</lei:OtherEntityName>
+        </lei:OtherEntityNames>
+        <lei:LegalAddress xml:lang="en">
+          <lei:FirstAddressLine>27 GERRARD ROAD</lei:FirstAddressLine>
+          <lei:AdditionalAddressLine>IKOYI</lei:AdditionalAddressLine>
+          <lei:City>LAGOS</lei:City>
+          <lei:Region>NG-LA</lei:Region>
+          <lei:Country>NG</lei:Country>
+          <lei:PostalCode>23401</lei:PostalCode>
+        </lei:LegalAddress>
+        <lei:HeadquartersAddress xml:lang="en">
+          <lei:FirstAddressLine>27 GERRARD ROAD</lei:FirstAddressLine>
+          <lei:AdditionalAddressLine>IKOYI</lei:AdditionalAddressLine>
+          <lei:City>LAGOS</lei:City>
+          <lei:Region>NG-LA</lei:Region>
+          <lei:Country>NG</lei:Country>
+        </lei:HeadquartersAddress>
+        <lei:OtherAddresses>
+          <lei:OtherAddress xml:lang="fr" type="ALTERNATIVE_LANGUAGE_HEADQUARTERS_ADDRESS">
+            <lei:FirstAddressLine>27 GERRARD ROAD</lei:FirstAddressLine>
+            <lei:AdditionalAddressLine>IKOYI</lei:AdditionalAddressLine>
+            <lei:City>LAGOS</lei:City>
+            <lei:Region>NG-LA</lei:Region>
+            <lei:Country>NG</lei:Country>
+            <lei:PostalCode>23401</lei:PostalCode>
+          </lei:OtherAddress>
+        </lei:OtherAddresses>
+        <lei:RegistrationAuthority>
+          <lei:RegistrationAuthorityID>RA000469</lei:RegistrationAuthorityID>
+          <lei:RegistrationAuthorityEntityID>RC603315</lei:RegistrationAuthorityEntityID>
+        </lei:RegistrationAuthority>
+        <lei:LegalJurisdiction>NG-LA</lei:LegalJurisdiction>
+        <lei:LegalForm>
+          <lei:EntityLegalFormCode>8888</lei:EntityLegalFormCode>
+          <lei:OtherLegalForm>LIMITED</lei:OtherLegalForm>
+        </lei:LegalForm>
+        <lei:EntityStatus>ACTIVE</lei:EntityStatus>
+      </lei:Entity>
+      <lei:Registration>
+        <lei:InitialRegistrationDate>2014-11-06T00:00:00Z</lei:InitialRegistrationDate>
+        <lei:LastUpdateDate>2018-08-02T15:23:46Z</lei:LastUpdateDate>
+        <lei:RegistrationStatus>ISSUED</lei:RegistrationStatus>
+        <lei:NextRenewalDate>2018-11-06T00:00:00Z</lei:NextRenewalDate>
+        <lei:ManagingLOU>029200067A7K6CH0H586</lei:ManagingLOU>
+        <lei:ValidationSources>FULLY_CORROBORATED</lei:ValidationSources>
+        <lei:ValidationAuthority>
+          <lei:ValidationAuthorityID>RA000469</lei:ValidationAuthorityID>
+        </lei:ValidationAuthority>
+      </lei:Registration>
+    </lei:LEIRecord>
+    <lei:LEIRecord>
+      <lei:LEI>029200137F2K8AH5C573</lei:LEI>
+      <lei:Entity>
+        <lei:LegalName xml:lang="en">CAPITAL ASSETS LIMITED</lei:LegalName>
+        <lei:OtherEntityNames>
+          <lei:OtherEntityName xml:lang="fr" type="ALTERNATIVE_LANGUAGE_LEGAL_NAME">CAPITAL ASSETS LIMITED</lei:OtherEntityName>
+        </lei:OtherEntityNames>
+        <lei:LegalAddress xml:lang="en">
+          <lei:FirstAddressLine>9TH FLOOR BOOKSHOP HOUSE, 50/52 BROAD STREET</lei:FirstAddressLine>
+          <lei:AdditionalAddressLine>P.O. BOX 702 LAGOS</lei:AdditionalAddressLine>
+          <lei:City>LAGOS</lei:City>
+          <lei:Region>NG-LA</lei:Region>
+          <lei:Country>NG</lei:Country>
+          <lei:PostalCode>23401</lei:PostalCode>
+        </lei:LegalAddress>
+        <lei:HeadquartersAddress xml:lang="en">
+          <lei:FirstAddressLine>9TH FLOOR BOOKSHOP HOUSE, 50/52 BROAD STREET</lei:FirstAddressLine>
+          <lei:AdditionalAddressLine>P.O. BOX 702 LAGOS</lei:AdditionalAddressLine>
+          <lei:City>LAGOS</lei:City>
+          <lei:Region>NG-LA</lei:Region>
+          <lei:Country>NG</lei:Country>
+        </lei:HeadquartersAddress>
+        <lei:OtherAddresses>
+          <lei:OtherAddress xml:lang="fr" type="ALTERNATIVE_LANGUAGE_HEADQUARTERS_ADDRESS">
+            <lei:FirstAddressLine>9TH FLOOR BOOKSHOP HOUSE, 50/52 BROAD STREET</lei:FirstAddressLine>
+            <lei:AdditionalAddressLine>P.O. BOX 702 LAGOS</lei:AdditionalAddressLine>
+            <lei:City>LAGOS</lei:City>
+            <lei:Region>NG-LA</lei:Region>
+            <lei:Country>NG</lei:Country>
+            <lei:PostalCode>23401</lei:PostalCode>
+          </lei:OtherAddress>
+        </lei:OtherAddresses>
+        <lei:RegistrationAuthority>
+          <lei:RegistrationAuthorityID>RA000469</lei:RegistrationAuthorityID>
+          <lei:RegistrationAuthorityEntityID>RC286096</lei:RegistrationAuthorityEntityID>
+        </lei:RegistrationAuthority>
+        <lei:LegalJurisdiction>NG-LA</lei:LegalJurisdiction>
+        <lei:LegalForm>
+          <lei:EntityLegalFormCode>8888</lei:EntityLegalFormCode>
+          <lei:OtherLegalForm>LIMITED</lei:OtherLegalForm>
+        </lei:LegalForm>
+        <lei:EntityStatus>ACTIVE</lei:EntityStatus>
+      </lei:Entity>
+      <lei:Registration>
+        <lei:InitialRegistrationDate>2014-11-06T00:00:00Z</lei:InitialRegistrationDate>
+        <lei:LastUpdateDate>2018-07-27T12:37:40Z</lei:LastUpdateDate>
+        <lei:RegistrationStatus>ISSUED</lei:RegistrationStatus>
+        <lei:NextRenewalDate>2018-11-06T00:00:00Z</lei:NextRenewalDate>
+        <lei:ManagingLOU>029200067A7K6CH0H586</lei:ManagingLOU>
+        <lei:ValidationSources>FULLY_CORROBORATED</lei:ValidationSources>
+        <lei:ValidationAuthority>
+          <lei:ValidationAuthorityID>RA000469</lei:ValidationAuthorityID>
+        </lei:ValidationAuthority>
+      </lei:Registration>
+    </lei:LEIRecord>
+    <lei:LEIRecord>
+      <lei:LEI>029200038B4L4ZI1E579</lei:LEI>
+      <lei:Entity>
+        <lei:LegalName xml:lang="en">CAPITAL BANCORP PLC</lei:LegalName>
+        <lei:OtherEntityNames>
+          <lei:OtherEntityName xml:lang="fr" type="ALTERNATIVE_LANGUAGE_LEGAL_NAME">CAPITAL BANCORP PLC</lei:OtherEntityName>
+        </lei:OtherEntityNames>
+        <lei:LegalAddress xml:lang="en">
+          <lei:FirstAddressLine>3RD FLOOR, UNTL BUILDING, 1, DAVIES STREET</lei:FirstAddressLine>
+          <lei:AdditionalAddressLine>OFF MARINA, LAGOS. P.O.BOX 1362, MARINA</lei:AdditionalAddressLine>
+          <lei:City>LAGOS</lei:City>
+          <lei:Region>NG-LA</lei:Region>
+          <lei:Country>NG</lei:Country>
+          <lei:PostalCode>23401</lei:PostalCode>
+        </lei:LegalAddress>
+        <lei:HeadquartersAddress xml:lang="en">
+          <lei:FirstAddressLine>3RD FLOOR, UNTL BUILDING, 1, DAVIES STREET</lei:FirstAddressLine>
+          <lei:AdditionalAddressLine>OFF MARINA, LAGOS. P.O.BOX 1362, MARINA</lei:AdditionalAddressLine>
+          <lei:City>LAGOS</lei:City>
+          <lei:Region>NG-LA</lei:Region>
+          <lei:Country>NG</lei:Country>
+        </lei:HeadquartersAddress>
+        <lei:OtherAddresses>
+          <lei:OtherAddress xml:lang="fr" type="ALTERNATIVE_LANGUAGE_HEADQUARTERS_ADDRESS">
+            <lei:FirstAddressLine>3RD FLOOR, UNTL BUILDING, 1, DAVIES STREET</lei:FirstAddressLine>
+            <lei:AdditionalAddressLine>OFF MARINA, LAGOS. P.O.BOX 1362, MARINA</lei:AdditionalAddressLine>
+            <lei:City>LAGOS</lei:City>
+            <lei:Region>NG-LA</lei:Region>
+            <lei:Country>NG</lei:Country>
+            <lei:PostalCode>23401</lei:PostalCode>
+          </lei:OtherAddress>
+        </lei:OtherAddresses>
+        <lei:RegistrationAuthority>
+          <lei:RegistrationAuthorityID>RA000469</lei:RegistrationAuthorityID>
+          <lei:RegistrationAuthorityEntityID>RC114135</lei:RegistrationAuthorityEntityID>
+        </lei:RegistrationAuthority>
+        <lei:LegalJurisdiction>NG-LA</lei:LegalJurisdiction>
+        <lei:LegalForm>
+          <lei:EntityLegalFormCode>8888</lei:EntityLegalFormCode>
+          <lei:OtherLegalForm>LIMITED</lei:OtherLegalForm>
+        </lei:LegalForm>
+        <lei:EntityStatus>ACTIVE</lei:EntityStatus>
+      </lei:Entity>
+      <lei:Registration>
+        <lei:InitialRegistrationDate>2014-11-06T00:00:00Z</lei:InitialRegistrationDate>
+        <lei:LastUpdateDate>2018-07-27T12:43:39Z</lei:LastUpdateDate>
+        <lei:RegistrationStatus>ISSUED</lei:RegistrationStatus>
+        <lei:NextRenewalDate>2018-11-05T23:00:00Z</lei:NextRenewalDate>
+        <lei:ManagingLOU>029200067A7K6CH0H586</lei:ManagingLOU>
+        <lei:ValidationSources>FULLY_CORROBORATED</lei:ValidationSources>
+        <lei:ValidationAuthority>
+          <lei:ValidationAuthorityID>RA000469</lei:ValidationAuthorityID>
+        </lei:ValidationAuthority>
+      </lei:Registration>
+    </lei:LEIRecord>
+    <lei:LEIRecord>
+      <lei:LEI>029200048F0K9UI5A508</lei:LEI>
+      <lei:Entity>
+        <lei:LegalName xml:lang="en">CAPITAL EXPRESS SECURITIES LTD</lei:LegalName>
+        <lei:OtherEntityNames>
+          <lei:OtherEntityName xml:lang="fr" type="ALTERNATIVE_LANGUAGE_LEGAL_NAME">CAPITAL EXPRESS SECURITIES LTD</lei:OtherEntityName>
+        </lei:OtherEntityNames>
+        <lei:LegalAddress xml:lang="en">
+          <lei:FirstAddressLine>PLOT 1626 C-E, SAKA JOJO STREET</lei:FirstAddressLine>
+          <lei:AdditionalAddressLine>OFF IDEJO STREET, VICTORIA ISLAND</lei:AdditionalAddressLine>
+          <lei:City>LAGOS</lei:City>
+          <lei:Region>NG-LA</lei:Region>
+          <lei:Country>NG</lei:Country>
+          <lei:PostalCode>23401</lei:PostalCode>
+        </lei:LegalAddress>
+        <lei:HeadquartersAddress xml:lang="en">
+          <lei:FirstAddressLine>PLOT 1626 C-E, SAKA JOJO STREET</lei:FirstAddressLine>
+          <lei:AdditionalAddressLine>OFF IDEJO STREET, VICTORIA ISLAND</lei:AdditionalAddressLine>
+          <lei:City>LAGOS</lei:City>
+          <lei:Region>NG-LA</lei:Region>
+          <lei:Country>NG</lei:Country>
+        </lei:HeadquartersAddress>
+        <lei:OtherAddresses>
+          <lei:OtherAddress xml:lang="fr" type="ALTERNATIVE_LANGUAGE_HEADQUARTERS_ADDRESS">
+            <lei:FirstAddressLine>PLOT 1626 C-E, SAKA JOJO STREET</lei:FirstAddressLine>
+            <lei:AdditionalAddressLine>OFF IDEJO STREET, VICTORIA ISLAND</lei:AdditionalAddressLine>
+            <lei:City>LAGOS</lei:City>
+            <lei:Region>NG-LA</lei:Region>
+            <lei:Country>NG</lei:Country>
+            <lei:PostalCode>23401</lei:PostalCode>
+          </lei:OtherAddress>
+        </lei:OtherAddresses>
+        <lei:RegistrationAuthority>
+          <lei:RegistrationAuthorityID>RA000469</lei:RegistrationAuthorityID>
+          <lei:RegistrationAuthorityEntityID>RC158080</lei:RegistrationAuthorityEntityID>
+        </lei:RegistrationAuthority>
+        <lei:LegalJurisdiction>NG-LA</lei:LegalJurisdiction>
+        <lei:LegalForm>
+          <lei:EntityLegalFormCode>8888</lei:EntityLegalFormCode>
+          <lei:OtherLegalForm>LIMITED</lei:OtherLegalForm>
+        </lei:LegalForm>
+        <lei:EntityStatus>ACTIVE</lei:EntityStatus>
+      </lei:Entity>
+      <lei:Registration>
+        <lei:InitialRegistrationDate>2014-11-06T00:00:00Z</lei:InitialRegistrationDate>
+        <lei:LastUpdateDate>2018-07-27T12:39:47Z</lei:LastUpdateDate>
+        <lei:RegistrationStatus>ISSUED</lei:RegistrationStatus>
+        <lei:NextRenewalDate>2018-11-06T00:00:00Z</lei:NextRenewalDate>
+        <lei:ManagingLOU>029200067A7K6CH0H586</lei:ManagingLOU>
+        <lei:ValidationSources>FULLY_CORROBORATED</lei:ValidationSources>
+        <lei:ValidationAuthority>
+          <lei:ValidationAuthorityID>RA000469</lei:ValidationAuthorityID>
+        </lei:ValidationAuthority>
+      </lei:Registration>
+    </lei:LEIRecord>
+    <lei:LEIRecord>
+      <lei:LEI>029200222D9S2BC3J917</lei:LEI>
+      <lei:Entity>
+        <lei:LegalName xml:lang="en">CARDINALSTONE SECURITIES LIMITED</lei:LegalName>
+        <lei:OtherEntityNames>
+          <lei:OtherEntityName xml:lang="fr" type="ALTERNATIVE_LANGUAGE_LEGAL_NAME">CARDINALSTONE SECURITIES LIMITED</lei:OtherEntityName>
+        </lei:OtherEntityNames>
+        <lei:LegalAddress xml:lang="en">
+          <lei:FirstAddressLine>5, OKOTIE-EBOH STREET</lei:FirstAddressLine>
+          <lei:AdditionalAddressLine>IKOYI</lei:AdditionalAddressLine>
+          <lei:City>LAGOS</lei:City>
+          <lei:Region>NG-LA</lei:Region>
+          <lei:Country>NG</lei:Country>
+          <lei:PostalCode>23401</lei:PostalCode>
+        </lei:LegalAddress>
+        <lei:HeadquartersAddress xml:lang="en">
+          <lei:FirstAddressLine>5, OKOTIE-EBOH STREET</lei:FirstAddressLine>
+          <lei:AdditionalAddressLine>IKOYI</lei:AdditionalAddressLine>
+          <lei:City>LAGOS</lei:City>
+          <lei:Region>NG-LA</lei:Region>
+          <lei:Country>NG</lei:Country>
+        </lei:HeadquartersAddress>
+        <lei:OtherAddresses>
+          <lei:OtherAddress xml:lang="fr" type="ALTERNATIVE_LANGUAGE_HEADQUARTERS_ADDRESS">
+            <lei:FirstAddressLine>5, OKOTIE-EBOH STREET</lei:FirstAddressLine>
+            <lei:AdditionalAddressLine>IKOYI</lei:AdditionalAddressLine>
+            <lei:City>LAGOS</lei:City>
+            <lei:Region>NG-LA</lei:Region>
+            <lei:Country>NG</lei:Country>
+            <lei:PostalCode>23401</lei:PostalCode>
+          </lei:OtherAddress>
+        </lei:OtherAddresses>
+        <lei:RegistrationAuthority>
+          <lei:RegistrationAuthorityID>RA000469</lei:RegistrationAuthorityID>
+          <lei:RegistrationAuthorityEntityID>RC739857</lei:RegistrationAuthorityEntityID>
+        </lei:RegistrationAuthority>
+        <lei:LegalJurisdiction>NG-LA</lei:LegalJurisdiction>
+        <lei:LegalForm>
+          <lei:EntityLegalFormCode>8888</lei:EntityLegalFormCode>
+          <lei:OtherLegalForm>LIMITED</lei:OtherLegalForm>
+        </lei:LegalForm>
+        <lei:EntityStatus>ACTIVE</lei:EntityStatus>
+      </lei:Entity>
+      <lei:Registration>
+        <lei:InitialRegistrationDate>2014-11-06T00:00:00Z</lei:InitialRegistrationDate>
+        <lei:LastUpdateDate>2017-11-10T11:41:00Z</lei:LastUpdateDate>
+        <lei:RegistrationStatus>ISSUED</lei:RegistrationStatus>
+        <lei:NextRenewalDate>2018-11-06T00:00:00Z</lei:NextRenewalDate>
+        <lei:ManagingLOU>029200067A7K6CH0H586</lei:ManagingLOU>
+        <lei:ValidationSources>FULLY_CORROBORATED</lei:ValidationSources>
+        <lei:ValidationAuthority>
+          <lei:ValidationAuthorityID>RA000469</lei:ValidationAuthorityID>
+        </lei:ValidationAuthority>
+      </lei:Registration>
+    </lei:LEIRecord>
+    <lei:LEIRecord>
+      <lei:LEI>029200067A7K6CH0H586</lei:LEI>
+      <lei:Entity>
+        <lei:LegalName xml:lang="en">CENTRAL SECURITIES CLEARING SYSTEM PLC</lei:LegalName>
+        <lei:OtherEntityNames>
+          <lei:OtherEntityName xml:lang="fr" type="ALTERNATIVE_LANGUAGE_LEGAL_NAME">CENTRAL SECURITIES CLEARING SYSTEM PLC</lei:OtherEntityName>
+        </lei:OtherEntityNames>
+        <lei:LegalAddress xml:lang="en">
+          <lei:FirstAddressLine>2/4 CUSTOMS STREET, STOCK EXCHANGE HOUSE</lei:FirstAddressLine>
+          <lei:AdditionalAddressLine>14TH FLOOR, P.O.BOX 3168, MARINA</lei:AdditionalAddressLine>
+          <lei:City>LAGOS</lei:City>
+          <lei:Region>NG-LA</lei:Region>
+          <lei:Country>NG</lei:Country>
+          <lei:PostalCode>23401</lei:PostalCode>
+        </lei:LegalAddress>
+        <lei:HeadquartersAddress xml:lang="en">
+          <lei:FirstAddressLine>2/4 CUSTOMS STREET, STOCK EXCHANGE HOUSE</lei:FirstAddressLine>
+          <lei:AdditionalAddressLine>14TH FLOOR, P.O.BOX 3168, MARINA</lei:AdditionalAddressLine>
+          <lei:City>LAGOS</lei:City>
+          <lei:Region>NG-LA</lei:Region>
+          <lei:Country>NG</lei:Country>
+        </lei:HeadquartersAddress>
+        <lei:OtherAddresses>
+          <lei:OtherAddress xml:lang="fr" type="ALTERNATIVE_LANGUAGE_HEADQUARTERS_ADDRESS">
+            <lei:FirstAddressLine>2/4 CUSTOMS STREET, STOCK EXCHANGE HOUSE</lei:FirstAddressLine>
+            <lei:AdditionalAddressLine>14TH FLOOR, P.O.BOX 3168, MARINA</lei:AdditionalAddressLine>
+            <lei:City>LAGOS</lei:City>
+            <lei:Region>NG-LA</lei:Region>
+            <lei:Country>NG</lei:Country>
+            <lei:PostalCode>23401</lei:PostalCode>
+          </lei:OtherAddress>
+        </lei:OtherAddresses>
+        <lei:RegistrationAuthority>
+          <lei:RegistrationAuthorityID>RA000469</lei:RegistrationAuthorityID>
+          <lei:RegistrationAuthorityEntityID>RC201018</lei:RegistrationAuthorityEntityID>
+        </lei:RegistrationAuthority>
+        <lei:LegalJurisdiction>NG-LA</lei:LegalJurisdiction>
+        <lei:LegalForm>
+          <lei:EntityLegalFormCode>8888</lei:EntityLegalFormCode>
+          <lei:OtherLegalForm>LIMITED</lei:OtherLegalForm>
+        </lei:LegalForm>
+        <lei:EntityStatus>ACTIVE</lei:EntityStatus>
+      </lei:Entity>
+      <lei:Registration>
+        <lei:InitialRegistrationDate>2014-11-06T00:00:00Z</lei:InitialRegistrationDate>
+        <lei:LastUpdateDate>2017-11-27T15:02:01Z</lei:LastUpdateDate>
+        <lei:RegistrationStatus>ISSUED</lei:RegistrationStatus>
+        <lei:NextRenewalDate>2018-11-06T00:00:00Z</lei:NextRenewalDate>
+        <lei:ManagingLOU>029200067A7K6CH0H586</lei:ManagingLOU>
+        <lei:ValidationSources>FULLY_CORROBORATED</lei:ValidationSources>
+        <lei:ValidationAuthority>
+          <lei:ValidationAuthorityID>RA000469</lei:ValidationAuthorityID>
+        </lei:ValidationAuthority>
+      </lei:Registration>
+    </lei:LEIRecord>
+    <lei:LEIRecord>
+      <lei:LEI>029200050A6L6XA0G556</lei:LEI>
+      <lei:Entity>
+        <lei:LegalName xml:lang="en">COWRY SECURITIES LIMITED</lei:LegalName>
+        <lei:OtherEntityNames>
+          <lei:OtherEntityName xml:lang="fr" type="ALTERNATIVE_LANGUAGE_LEGAL_NAME">COWRY SECURITIES LIMITED</lei:OtherEntityName>
+        </lei:OtherEntityNames>
+        <lei:LegalAddress xml:lang="en">
+          <lei:FirstAddressLine>PLOT 1319 KARIMU KOTUN STREET</lei:FirstAddressLine>
+          <lei:AdditionalAddressLine>VICTORIA ISLAND</lei:AdditionalAddressLine>
+          <lei:City>LAGOS</lei:City>
+          <lei:Region>NG-LA</lei:Region>
+          <lei:Country>NG</lei:Country>
+          <lei:PostalCode>23401</lei:PostalCode>
+        </lei:LegalAddress>
+        <lei:HeadquartersAddress xml:lang="en">
+          <lei:FirstAddressLine>PLOT 1319 KARIMU KOTUN STREET</lei:FirstAddressLine>
+          <lei:AdditionalAddressLine>VICTORIA ISLAND</lei:AdditionalAddressLine>
+          <lei:City>LAGOS</lei:City>
+          <lei:Region>NG-LA</lei:Region>
+          <lei:Country>NG</lei:Country>
+        </lei:HeadquartersAddress>
+        <lei:OtherAddresses>
+          <lei:OtherAddress xml:lang="fr" type="ALTERNATIVE_LANGUAGE_HEADQUARTERS_ADDRESS">
+            <lei:FirstAddressLine>PLOT 1319 KARIMU KOTUN STREET</lei:FirstAddressLine>
+            <lei:AdditionalAddressLine>VICTORIA ISLAND</lei:AdditionalAddressLine>
+            <lei:City>LAGOS</lei:City>
+            <lei:Region>NG-LA</lei:Region>
+            <lei:Country>NG</lei:Country>
+            <lei:PostalCode>23401</lei:PostalCode>
+          </lei:OtherAddress>
+        </lei:OtherAddresses>
+        <lei:RegistrationAuthority>
+          <lei:RegistrationAuthorityID>RA000469</lei:RegistrationAuthorityID>
+          <lei:RegistrationAuthorityEntityID>RC902113</lei:RegistrationAuthorityEntityID>
+        </lei:RegistrationAuthority>
+        <lei:LegalJurisdiction>NG-LA</lei:LegalJurisdiction>
+        <lei:LegalForm>
+          <lei:EntityLegalFormCode>8888</lei:EntityLegalFormCode>
+          <lei:OtherLegalForm>LIMITED</lei:OtherLegalForm>
+        </lei:LegalForm>
+        <lei:EntityStatus>ACTIVE</lei:EntityStatus>
+      </lei:Entity>
+      <lei:Registration>
+        <lei:InitialRegistrationDate>2014-11-06T00:00:00Z</lei:InitialRegistrationDate>
+        <lei:LastUpdateDate>2018-08-02T15:33:04Z</lei:LastUpdateDate>
+        <lei:RegistrationStatus>ISSUED</lei:RegistrationStatus>
+        <lei:NextRenewalDate>2018-11-06T00:00:00Z</lei:NextRenewalDate>
+        <lei:ManagingLOU>029200067A7K6CH0H586</lei:ManagingLOU>
+        <lei:ValidationSources>FULLY_CORROBORATED</lei:ValidationSources>
+        <lei:ValidationAuthority>
+          <lei:ValidationAuthorityID>RA000469</lei:ValidationAuthorityID>
+        </lei:ValidationAuthority>
+      </lei:Registration>
+    </lei:LEIRecord>
+    <lei:LEIRecord>
+      <lei:LEI>029200028G3L5BI6D581</lei:LEI>
+      <lei:Entity>
+        <lei:LegalName xml:lang="en">DIAMOND SECURITIES LIMITED</lei:LegalName>
+        <lei:OtherEntityNames>
+          <lei:OtherEntityName xml:lang="fr" type="ALTERNATIVE_LANGUAGE_LEGAL_NAME">DIAMOND SECURITIES LIMITED</lei:OtherEntityName>
+        </lei:OtherEntityNames>
+        <lei:LegalAddress xml:lang="en">
+          <lei:FirstAddressLine>33B CAMERON ROAD</lei:FirstAddressLine>
+          <lei:AdditionalAddressLine>IKOYI</lei:AdditionalAddressLine>
+          <lei:City>LAGOS</lei:City>
+          <lei:Region>NG-LA</lei:Region>
+          <lei:Country>NG</lei:Country>
+          <lei:PostalCode>23401</lei:PostalCode>
+        </lei:LegalAddress>
+        <lei:HeadquartersAddress xml:lang="en">
+          <lei:FirstAddressLine>33B CAMERON ROAD</lei:FirstAddressLine>
+          <lei:AdditionalAddressLine>IKOYI</lei:AdditionalAddressLine>
+          <lei:City>LAGOS</lei:City>
+          <lei:Region>NG-LA</lei:Region>
+          <lei:Country>NG</lei:Country>
+        </lei:HeadquartersAddress>
+        <lei:OtherAddresses>
+          <lei:OtherAddress xml:lang="fr" type="ALTERNATIVE_LANGUAGE_HEADQUARTERS_ADDRESS">
+            <lei:FirstAddressLine>33B CAMERON ROAD</lei:FirstAddressLine>
+            <lei:AdditionalAddressLine>IKOYI</lei:AdditionalAddressLine>
+            <lei:City>LAGOS</lei:City>
+            <lei:Region>NG-LA</lei:Region>
+            <lei:Country>NG</lei:Country>
+            <lei:PostalCode>23401</lei:PostalCode>
+          </lei:OtherAddress>
+        </lei:OtherAddresses>
+        <lei:RegistrationAuthority>
+          <lei:RegistrationAuthorityID>RA000469</lei:RegistrationAuthorityID>
+          <lei:RegistrationAuthorityEntityID>RC165127</lei:RegistrationAuthorityEntityID>
+        </lei:RegistrationAuthority>
+        <lei:LegalJurisdiction>NG-LA</lei:LegalJurisdiction>
+        <lei:LegalForm>
+          <lei:EntityLegalFormCode>8888</lei:EntityLegalFormCode>
+          <lei:OtherLegalForm>LIMITED</lei:OtherLegalForm>
+        </lei:LegalForm>
+        <lei:EntityStatus>ACTIVE</lei:EntityStatus>
+      </lei:Entity>
+      <lei:Registration>
+        <lei:InitialRegistrationDate>2014-11-06T00:00:00Z</lei:InitialRegistrationDate>
+        <lei:LastUpdateDate>2018-08-07T17:24:16Z</lei:LastUpdateDate>
+        <lei:RegistrationStatus>ISSUED</lei:RegistrationStatus>
+        <lei:NextRenewalDate>2018-11-06T00:00:00Z</lei:NextRenewalDate>
+        <lei:ManagingLOU>029200067A7K6CH0H586</lei:ManagingLOU>
+        <lei:ValidationSources>FULLY_CORROBORATED</lei:ValidationSources>
+        <lei:ValidationAuthority>
+          <lei:ValidationAuthorityID>RA000469</lei:ValidationAuthorityID>
+        </lei:ValidationAuthority>
+      </lei:Registration>
+    </lei:LEIRecord>
+    <lei:LEIRecord>
+      <lei:LEI>029200073F9T3DD5J993</lei:LEI>
+      <lei:Entity>
+        <lei:LegalName xml:lang="en">ECL ASSET MANAGEMENT LIMITED</lei:LegalName>
+        <lei:OtherEntityNames>
+          <lei:OtherEntityName xml:lang="fr" type="ALTERNATIVE_LANGUAGE_LEGAL_NAME">ECL ASSET MANAGEMENT LIMITED</lei:OtherEntityName>
+        </lei:OtherEntityNames>
+        <lei:LegalAddress xml:lang="en">
+          <lei:FirstAddressLine>PLOT 154,PRINCE ADE ODEDINA STREET</lei:FirstAddressLine>
+          <lei:AdditionalAddressLine>OFF SINARI DARANIJO STREET, OFF AJOSE ADEOGUN STREET, VICTORIA ISLAND</lei:AdditionalAddressLine>
+          <lei:City>LAGOS</lei:City>
+          <lei:Region>NG-LA</lei:Region>
+          <lei:Country>NG</lei:Country>
+          <lei:PostalCode>23401</lei:PostalCode>
+        </lei:LegalAddress>
+        <lei:HeadquartersAddress xml:lang="en">
+          <lei:FirstAddressLine>PLOT 154,PRINCE ADE ODEDINA STREET</lei:FirstAddressLine>
+          <lei:AdditionalAddressLine>OFF SINARI DARANIJO STREET, OFF AJOSE ADEOGUN STREET, VICTORIA ISLAND</lei:AdditionalAddressLine>
+          <lei:City>LAGOS</lei:City>
+          <lei:Region>NG-LA</lei:Region>
+          <lei:Country>NG</lei:Country>
+        </lei:HeadquartersAddress>
+        <lei:OtherAddresses>
+          <lei:OtherAddress xml:lang="fr" type="ALTERNATIVE_LANGUAGE_HEADQUARTERS_ADDRESS">
+            <lei:FirstAddressLine>PLOT 154,PRINCE ADE ODEDINA STREET</lei:FirstAddressLine>
+            <lei:AdditionalAddressLine>OFF SINARI DARANIJO STREET, OFF AJOSE ADEOGUN STREET, VICTORIA ISLAND</lei:AdditionalAddressLine>
+            <lei:City>LAGOS</lei:City>
+            <lei:Region>NG-LA</lei:Region>
+            <lei:Country>NG</lei:Country>
+            <lei:PostalCode>23401</lei:PostalCode>
+          </lei:OtherAddress>
+        </lei:OtherAddresses>
+        <lei:RegistrationAuthority>
+          <lei:RegistrationAuthorityID>RA000469</lei:RegistrationAuthorityID>
+          <lei:RegistrationAuthorityEntityID>RC659949</lei:RegistrationAuthorityEntityID>
+        </lei:RegistrationAuthority>
+        <lei:LegalJurisdiction>NG-LA</lei:LegalJurisdiction>
+        <lei:LegalForm>
+          <lei:EntityLegalFormCode>8888</lei:EntityLegalFormCode>
+          <lei:OtherLegalForm>LIMITED</lei:OtherLegalForm>
+        </lei:LegalForm>
+        <lei:EntityStatus>ACTIVE</lei:EntityStatus>
+      </lei:Entity>
+      <lei:Registration>
+        <lei:InitialRegistrationDate>2014-11-06T00:00:00Z</lei:InitialRegistrationDate>
+        <lei:LastUpdateDate>2018-06-06T09:31:12Z</lei:LastUpdateDate>
+        <lei:RegistrationStatus>LAPSED</lei:RegistrationStatus>
+        <lei:NextRenewalDate>2015-09-11T23:00:00Z</lei:NextRenewalDate>
+        <lei:ManagingLOU>029200067A7K6CH0H586</lei:ManagingLOU>
+        <lei:ValidationSources>FULLY_CORROBORATED</lei:ValidationSources>
+        <lei:ValidationAuthority>
+          <lei:ValidationAuthorityID>RA000469</lei:ValidationAuthorityID>
+        </lei:ValidationAuthority>
+      </lei:Registration>
+    </lei:LEIRecord>
+    <lei:LEIRecord>
+      <lei:LEI>029200086F9P0XG5J787</lei:LEI>
+      <lei:Entity>
+        <lei:LegalName xml:lang="en">EUROCOMM SECURITIES LIMITED</lei:LegalName>
+        <lei:OtherEntityNames>
+          <lei:OtherEntityName xml:lang="fr" type="ALTERNATIVE_LANGUAGE_LEGAL_NAME">EUROCOMM SECURITIES LIMITED</lei:OtherEntityName>
+        </lei:OtherEntityNames>
+        <lei:LegalAddress xml:lang="en">
+          <lei:FirstAddressLine>4TH FLOOR, NEW AFRICA HOUSE</lei:FirstAddressLine>
+          <lei:AdditionalAddressLine>31 MARINA LAGOS ISLAND P O BOX 2283 MARINA</lei:AdditionalAddressLine>
+          <lei:City>LAGOS</lei:City>
+          <lei:Region>NG-LA</lei:Region>
+          <lei:Country>NG</lei:Country>
+          <lei:PostalCode>23401</lei:PostalCode>
+        </lei:LegalAddress>
+        <lei:HeadquartersAddress xml:lang="en">
+          <lei:FirstAddressLine>4TH FLOOR, NEW AFRICA HOUSE</lei:FirstAddressLine>
+          <lei:AdditionalAddressLine>31 MARINA LAGOS ISLAND P O BOX 2283 MARINA</lei:AdditionalAddressLine>
+          <lei:City>LAGOS</lei:City>
+          <lei:Region>NG-LA</lei:Region>
+          <lei:Country>NG</lei:Country>
+        </lei:HeadquartersAddress>
+        <lei:OtherAddresses>
+          <lei:OtherAddress xml:lang="fr" type="ALTERNATIVE_LANGUAGE_HEADQUARTERS_ADDRESS">
+            <lei:FirstAddressLine>4TH FLOOR, NEW AFRICA HOUSE</lei:FirstAddressLine>
+            <lei:AdditionalAddressLine>31 MARINA LAGOS ISLAND P O BOX 2283 MARINA</lei:AdditionalAddressLine>
+            <lei:City>LAGOS</lei:City>
+            <lei:Region>NG-LA</lei:Region>
+            <lei:Country>NG</lei:Country>
+            <lei:PostalCode>23401</lei:PostalCode>
+          </lei:OtherAddress>
+        </lei:OtherAddresses>
+        <lei:RegistrationAuthority>
+          <lei:RegistrationAuthorityID>RA000469</lei:RegistrationAuthorityID>
+          <lei:RegistrationAuthorityEntityID>RC359573</lei:RegistrationAuthorityEntityID>
+        </lei:RegistrationAuthority>
+        <lei:LegalJurisdiction>NG-LA</lei:LegalJurisdiction>
+        <lei:LegalForm>
+          <lei:EntityLegalFormCode>8888</lei:EntityLegalFormCode>
+          <lei:OtherLegalForm>LIMITED</lei:OtherLegalForm>
+        </lei:LegalForm>
+        <lei:EntityStatus>ACTIVE</lei:EntityStatus>
+      </lei:Entity>
+      <lei:Registration>
+        <lei:InitialRegistrationDate>2014-11-06T00:00:00Z</lei:InitialRegistrationDate>
+        <lei:LastUpdateDate>2018-07-25T11:22:56Z</lei:LastUpdateDate>
+        <lei:RegistrationStatus>ISSUED</lei:RegistrationStatus>
+        <lei:NextRenewalDate>2019-01-06T00:00:00Z</lei:NextRenewalDate>
+        <lei:ManagingLOU>029200067A7K6CH0H586</lei:ManagingLOU>
+        <lei:ValidationSources>FULLY_CORROBORATED</lei:ValidationSources>
+        <lei:ValidationAuthority>
+          <lei:ValidationAuthorityID>RA000469</lei:ValidationAuthorityID>
+        </lei:ValidationAuthority>
+      </lei:Registration>
+    </lei:LEIRecord>
+  </lei:LEIRecords>
+</lei:LEIData>

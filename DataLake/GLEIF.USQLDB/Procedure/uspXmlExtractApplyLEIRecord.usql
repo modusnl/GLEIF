@@ -19,13 +19,13 @@ BEGIN
         USING new XmlReaderExtractor("lei:LEIRecord");
     
 
-///*
+/*
 // Write (intermediate) result to XML-lines
 OUTPUT
     @extractLEIRecord
 TO @OutputFileXml
 USING Outputters.Text(quoting: false);    
-//*/
+*/
 
 
     // set XmlApplier() constructor variables

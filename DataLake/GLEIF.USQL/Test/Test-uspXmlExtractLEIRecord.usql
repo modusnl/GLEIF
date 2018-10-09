@@ -1,0 +1,10 @@
+﻿USE DATABASE [GLEIF.USQLDB];
+
+// Local-project | XPath 
+//gleif.uspXmlExtractLEIRecord( "/Data/20180901-gleif-concatenated-file-lei2-Top10.xml");
+
+// Local-machine & Remote Cluster | XPath 
+gleif.uspXmlExtractLEIRecord( "/GLEIF/20180901-gleif-concatenated-file-lei2-Top10000.xml");
+//gleif.uspXmlExtractLEIRecord( "/GLEIF/20180901-gleif-concatenated-file-lei2.xml");
+//gleif.uspZipXmlExtractApplyLEIRecord( "/GLEIF/20180901-gleif-concatenated-file-lei2-Top10000.zip");
+//gleif.uspZipXmlExtractApplyLEIRecord( "/GLEIF/20180901-gleif-concatenated-file-lei2.zip");

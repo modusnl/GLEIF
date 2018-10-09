@@ -1,0 +1,21 @@
+﻿USE [GLEIF.USQLDB];
+
+REFERENCE ASSEMBLY [GLEIF.USQLClass];
+USING GLEIF.USQLClass;
+
+DECLARE @InputFile String = @"/GLEIF/20180901-gleif-concatenated-file-lei2-Top10000.xml";
+
+// prepare output file name based on input zip
+DECLARE @OutputFileXml = @InputFile.Replace(".xml", ".LEIRecord.xml");
+
+// Extract XML-lines based on on the Body element
+@extractLEIRecord =
+    EXTRACT XmlElement string
+    FROM @InputFile
+    USING new XmlReaderExtractor("lei:LEIRecord");    
+
+// Write Extract to XML-lines
+OUTPUT
+    @extractLEIRecord
+TO @OutputFileXml
+USING Outputters.Text(quoting: false);
