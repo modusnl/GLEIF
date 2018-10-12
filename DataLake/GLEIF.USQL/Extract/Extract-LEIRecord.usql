@@ -5,7 +5,7 @@ USING GLEIF.USQLClass;
 
 DECLARE @InputFile String = @"/GLEIF/20180901-gleif-concatenated-file-lei2-Top10000.xml";
 
-// prepare output file name based on input zip
+// prepare output file name based on input file name
 DECLARE @OutputFileXml = @InputFile.Replace(".xml", ".LEIRecord.xml");
 
 // Extract XML-lines based on on the Body element
