@@ -21,7 +21,7 @@ OPENROWSET() LOB types;
 -- Open BLob as single XmlDocument
 SELECT CONVERT(XML, rs.BulkColumn) AS XmlDocument 
 FROM OPENROWSET(
-	BULK 'C:\Users\Paul\Source\Repos\GLEIF\Data\20180901-gleif-concatenated-file-lei2-Top100.xml', 
+	BULK 'X:\Repos\GLEIF\Data\20180901-gleif-concatenated-file-lei2-Top100.xml', 
 	SINGLE_BLOB
 ) AS rs;    
 
@@ -34,8 +34,8 @@ WITH XMLNAMESPACES (
 Input AS (
 	SELECT CONVERT(XML, rs.BulkColumn) AS XmlDocument 
 	FROM OPENROWSET(
-		BULK 'C:\Users\Paul\Source\Repos\GLEIF\Data\20180901-gleif-concatenated-file-lei2-Top100.xml',  -- 7 sec
-		--BULK 'C:\Users\Paul\Source\Repos\GLEIF\Data\20180901-gleif-concatenated-file-lei2-Top1000.xml', -- 4:07 sec
+		BULK 'X:\Repos\GLEIF\Data\20180901-gleif-concatenated-file-lei2-Top100.xml',  -- 7 sec
+		--BULK 'X:\Repos\GLEIF\Data\20180901-gleif-concatenated-file-lei2-Top1000.xml', -- 4:07 sec
 		SINGLE_BLOB
 	) AS rs
 )
@@ -54,9 +54,9 @@ WITH XMLNAMESPACES (
 Input AS (
 	SELECT CONVERT(XML, rs.BulkColumn) AS XmlDocument 
 	FROM OPENROWSET(
-		BULK 'C:\Users\Paul\Source\Repos\GLEIF\Data\20180901-gleif-concatenated-file-lei2-Top100.xml',   --     0:02
-		--BULK 'C:\Users\Paul\Source\Repos\GLEIF\Data\20180901-gleif-concatenated-file-lei2-Top1000.xml',  --     4:07
-		--BULK 'C:\Users\Paul\Source\Repos\GLEIF\Data\20180901-gleif-concatenated-file-lei2-Top10000.xml', -- 05:19:32
+		BULK 'X:\Repos\GLEIF\Data\20180901-gleif-concatenated-file-lei2-Top100.xml',   --     0:02
+		--BULK 'X:\Repos\GLEIF\Data\20180901-gleif-concatenated-file-lei2-Top1000.xml',  --    05:21
+		--BULK 'X:\Repos\GLEIF\Data\20180901-gleif-concatenated-file-lei2-Top10000.xml', -- 05:19:32
 		SINGLE_BLOB
 	) AS rs
 )

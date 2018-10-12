@@ -18,7 +18,7 @@ CREATE TABLE GleifLeiRecordXml10000(
 );
 
 BULK INSERT GleifLeiRecordXml10000
-FROM 'C:\Users\Paul\Source\Repos\GLEIF\Data\20180901-gleif-concatenated-file-lei2-Top10000.LEIRecord.xml' 
+FROM 'X:\Repos\GLEIF\Data\20180901-gleif-concatenated-file-lei2-Top10000.LEIRecord.xml' 
 WITH (
 	FIRSTROW  = 1,
 	ROWTERMINATOR = '\n'
@@ -34,7 +34,7 @@ CREATE TABLE GleifLeiRecordXml(
 );
 
 BULK INSERT GleifLeiRecordXml
-FROM 'C:\Users\Paul\Source\Repos\GLEIF\Data\20180901-gleif-concatenated-file-lei2.LEIRecord.xml' 
+FROM 'X:\Repos\GLEIF\Data\20180901-gleif-concatenated-file-lei2.LEIRecord.xml' 
 WITH (
 	FIRSTROW  = 1,
 	ROWTERMINATOR = '\n'
