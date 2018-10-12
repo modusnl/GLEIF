@@ -341,3 +341,9 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+
+# Data Lake Tools in Visual Studio Code
+usqlCodeBehindReference
+usqlCodeBehindGenerated
+.cache
+obj
