@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+  targetNamespace="http://www.gleif.org/concatenated-file/header-extension/2.0"
+  xmlns:gleif="http://www.gleif.org/concatenated-file/header-extension/2.0">
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace"
+    schemaLocation="http://www.w3.org/2001/xml.xsd"/>
+    <xs:annotation>
+      <xs:documentation>As the XSD for the namespace 'gleif' is not published on www.gleif.org,
+						this XSD has been reverse engineered based on a publicly disclosed LEIData XML file.
+	  </xs:documentation>
+    </xs:annotation>	
+  <xs:element name="Sources">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Source" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:dateTime" name="ContentDate"/>
+              <xs:element type="xs:string" name="Originator"/>
+              <xs:element type="xs:int" name="RecordCount"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
