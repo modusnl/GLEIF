@@ -1,6 +1,6 @@
 ﻿# DataLake
 
-This DataLake folder hosts the various U-SQL projects ensembling the U-SQL solution.
+This DataLake folder hosts the various U-SQL projects ensembling the Data Lake U-SQL solution.
 
 For more info about U-SQL in general - and amongst other, many hands-on examples - see [U-SQL](https://github.com/Azure/usql)
 
@@ -12,7 +12,7 @@ Note that the `XmlApplier` is actually copied from [U-SQL Examples - Data Format
 
 ## GLEIF.USQLDB
 
-This project contains the declaritve USQL database development hosting the Azure Data Lake Analytics (ADLA) logic in USQL Procedures. 
+This project contains the declaritve USQL database development hosting the Azure Data Lake Analytics (ADLA) logic in USQL Procedures.
 
 Declaritive database development is achieved by always dropping & reacrating the USQL-DB, which contains logic only, as data is persisted on the Data Lake itself.
 

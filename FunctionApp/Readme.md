@@ -1,0 +1,3 @@
+# Notes
+
+use `npm install -g azure-functions-core-tools` over Chocolatey, because Chocolatey installs 32-bit version...
