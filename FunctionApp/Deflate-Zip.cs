@@ -11,24 +11,27 @@ namespace GLEIF.FunctionApp
     {
         [FunctionName("Deflate-Zip")]
         public static void Run(
-            [BlobTrigger("gleif-zip/{name}.zip", Connection = "GleifBlobStorage")] CloudBlockBlob inputBlob, 
+            [BlobTrigger("gleif-zip/{name}.zip", Connection = "GleifBlobStorage")] CloudBlockBlob inputBlob,
+            [Blob("gleif-xml/{name}", Connection = "GleifBlobStorage")] CloudBlockBlob outputBlob,
             string name, 
             string blobTrigger,
-            ILogger log,
+            ILogger logger,
             ExecutionContext context)
         {
+            // intentionally absorb complete BlobStream in memory first, 
+            // so the ZipArchive doesn't have to wait on a series of blob reads
             using (Stream inputBlobStream = inputBlob.OpenReadAsync().GetAwaiter().GetResult())
             using (ZipArchive archive = new ZipArchive(inputBlobStream, ZipArchiveMode.Read))
             {
-                log.LogInformation("Extracting {0} files from '{1}'...", archive.Entries.Count, inputBlob.Uri.LocalPath);
+                logger.LogInformation("Extracting {0} files from '{1}'...", archive.Entries.Count, blobTrigger);
 
                 // Loop through ALL the files in the Zip
                 foreach (ZipArchiveEntry entry in archive.Entries)
                 {
-                    Uri outputUri = new Uri(inputBlob.Parent.Uri.AbsoluteUri + '/' + entry.Name);
-                    CloudBlockBlob outputBlockBlob = new CloudBlockBlob(outputUri, inputBlob.ServiceClient);
+                    Uri outputUri = new Uri(outputBlob.Parent.Uri.AbsoluteUri + '/' + entry.Name);
+                    CloudBlockBlob outputBlockBlob = new CloudBlockBlob(outputUri, outputBlob.ServiceClient);
 
-                    log.LogInformation("Extracting '{0}' from '{1}'...", outputUri.LocalPath, inputBlob.Uri.LocalPath);
+                    logger.LogInformation("Extracting '{0}' from '{1}'...", outputUri.LocalPath, blobTrigger);
 
                     outputBlockBlob.UploadFromStreamAsync(entry.Open()).Wait();
                 }
@@ -36,7 +39,7 @@ namespace GLEIF.FunctionApp
                 // Delete input blob as results are written to output blob(s) successfully now
                 //inputBlob.DeleteAsync().Wait();
 
-                log.LogInformation("Extracting fininished successfully!");
+                logger.LogInformation("Extracting fininished successfully!");
             }
         }
     }
