@@ -8,9 +8,9 @@ using Microsoft.WindowsAzure.Storage.Blob;
 
 namespace GLEIF.FunctionApp
 {
-    public class GleifValidateXml
+    public class ValidateXml
     {
-        [FunctionName("Validate-Xml")]
+        [FunctionName("ValidateXml")]
         public static void Run(
             [BlobTrigger("gleif-xml/{name}.xml", Connection = "GleifBlobStorage")] Stream inputStream,
             [Blob("gleif-val/{name}-ValidationResult.csv", FileAccess.Write, Connection = "GleifBlobStorage")] Stream outputStream,

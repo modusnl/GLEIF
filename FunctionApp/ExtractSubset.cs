@@ -11,9 +11,9 @@ using CsvHelper;
 
 namespace GLEIF.FunctionApp
 {
-    public class GleifExtractSubset
+    public class ExtractSubset
     {
-        [FunctionName("Extract-Subset")]
+        [FunctionName("ExtractSubset")]
         public static void Run(
             [BlobTrigger("gleif-xml/{name}lei2.xml", Connection = "GleifBlobStorage")] CloudBlockBlob inputBlob,
             [Blob("gleif-xml/{name}", Connection = "GleifBlobStorage")] CloudBlockBlob outputBlob,
