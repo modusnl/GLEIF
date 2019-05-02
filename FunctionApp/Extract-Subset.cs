@@ -15,25 +15,24 @@ namespace GLEIF.FunctionApp
     {
         [FunctionName("Extract-Subset")]
         public static void Run(
-            [BlobTrigger("gleif-xml/{name}lei2.xml", Connection = "GleifBlobStorage")] Stream inputStream,
-            [Blob("gleif-xml/{name}lei2.xml", Connection = "GleifBlobStorage")] CloudBlockBlob inputBlob,
+            [BlobTrigger("gleif-xml/{name}lei2.xml", Connection = "GleifBlobStorage")] CloudBlockBlob inputBlob,
             [Blob("gleif-xml/{name}", Connection = "GleifBlobStorage")] CloudBlockBlob outputBlob,
             string name,
             string blobTrigger,
             ILogger logger,
             ExecutionContext context)
         {
-            logger.LogInformation("Extracting subsets from {0}... for", blobTrigger);
+            logger.LogInformation("Extracting subsets from {0}...", blobTrigger);
 
             // local variable leiData as LEIData Object (classes generated from XSD using XSD.exe)
             LEIData _leiData;
 
             // Read Xml into LEIData object
-            logger.LogInformation("Serializing inputStream into LEIData object...");
-            _leiData = ReadXml(inputStream);
+            logger.LogInformation("Serializing inputStream into LEIData object from {0}...", blobTrigger);
+            _leiData = ReadXml(inputBlob.OpenReadAsync().Result);
 
             // Write Top records  (using LINQ filtering)
-            logger.LogInformation("Writing TopN.xml files to blob...");
+            logger.LogInformation("Writing TopN.xml files to blob from {0}...", blobTrigger);
             WriteXmlTopN(_leiData, new Uri(outputBlob.Parent.Uri.AbsoluteUri + '/' + inputBlob.Name.Replace(".xml", "-Top10.xml")), outputBlob.ServiceClient, 10);
             WriteXmlTopN(_leiData, new Uri(outputBlob.Parent.Uri.AbsoluteUri + '/' + inputBlob.Name.Replace(".xml", "-Top100.xml")), outputBlob.ServiceClient, 100);
             WriteXmlTopN(_leiData, new Uri(outputBlob.Parent.Uri.AbsoluteUri + '/' + inputBlob.Name.Replace(".xml", "-Top1000.xml")), outputBlob.ServiceClient, 1000);
@@ -41,14 +40,14 @@ namespace GLEIF.FunctionApp
             WriteXmlTopN(_leiData, new Uri(outputBlob.Parent.Uri.AbsoluteUri + '/' + inputBlob.Name.Replace(".xml", "-Top100000.xml")), outputBlob.ServiceClient, 100000);
 
             // Write Country (using LINQ filtering)
-            logger.LogInformation("Writing Country.xml files to blob...");
+            logger.LogInformation("Writing Country.xml files to blob from {0}...", blobTrigger);
             WriteXmlCountry(_leiData, new Uri(outputBlob.Parent.Uri.AbsoluteUri + '/' + inputBlob.Name.Replace(".xml", "-NL.xml")), outputBlob.ServiceClient, "NL");
             WriteXmlCountry(_leiData, new Uri(outputBlob.Parent.Uri.AbsoluteUri + '/' + inputBlob.Name.Replace(".xml", "-PT.xml")), outputBlob.ServiceClient, "PT");
 
-            // Write other formats -> ToDo: fix aggressive memory consumption using MemoryStream
-            //logger.LogInformation("Writing .json & .csv files to blob...");
-            //WriteJson(_leiData, new Uri(outputBlob.Parent.Uri.AbsoluteUri + '/' + inputBlob.Name.Replace(".xml", ".json")), outputBlob.ServiceClient);
-            //WriteCsv(_leiData, new Uri(outputBlob.Parent.Uri.AbsoluteUri + '/' + inputBlob.Name.Replace(".xml", ".csv")), outputBlob.ServiceClient);
+            // Write other formats
+            logger.LogInformation("Writing .json & .csv files to blob from {0}...", blobTrigger);
+            WriteJson(_leiData, new Uri(outputBlob.Parent.Uri.AbsoluteUri + '/' + inputBlob.Name.Replace(".xml", ".json")), outputBlob.ServiceClient);
+            WriteCsv(_leiData, new Uri(outputBlob.Parent.Uri.AbsoluteUri + '/' + inputBlob.Name.Replace(".xml", ".csv")), outputBlob.ServiceClient);
         }
 
 
@@ -97,14 +96,10 @@ namespace GLEIF.FunctionApp
             // Update actual RecordCount in Header
             _leiData.LEIHeader.RecordCount = _leiData.LEIRecords.LEIRecord.Count.ToString();
 
-            // Write serialized object via MemoryStream to Blob
-            using (var ms = new MemoryStream())
-            {
-                WriteXmlStream(_leiData, ms);
-
-                ms.Position = 0;
-                CloudBlockBlob outputBlob = new CloudBlockBlob(outputUri, cloudBlobClient);
-                outputBlob.UploadFromStreamAsync(ms).Wait();
+            // Write serialized object to Blob
+            CloudBlockBlob outputBlob = new CloudBlockBlob(outputUri, cloudBlobClient);
+            using (var outputStream = outputBlob.OpenWriteAsync().Result) {
+                WriteXmlStream(_leiData, outputStream);
             }
         }
 
@@ -136,14 +131,11 @@ namespace GLEIF.FunctionApp
             ns.Add("gleif" + countryCode, "http://www.gleif.org/concatenated-file/header-extension/2.0");
             ns.Add("lei" + countryCode, "http://www.gleif.org/data/schema/leidata/2016");
 
-            // Write serialized object via MemoryStream to Blob
-            using (var ms = new MemoryStream())
+            // Write serialized object to Blob
+            CloudBlockBlob outputBlob = new CloudBlockBlob(outputUri, cloudBlobClient);
+            using (var outputStream = outputBlob.OpenWriteAsync().Result)
             {
-                WriteXmlStream(_leiData, ms, ns);
-
-                ms.Position = 0;
-                CloudBlockBlob outputBlob = new CloudBlockBlob(outputUri, cloudBlobClient);
-                outputBlob.UploadFromStreamAsync(ms).Wait();
+                WriteXmlStream(_leiData, outputStream);
             }
         }
 
@@ -151,15 +143,11 @@ namespace GLEIF.FunctionApp
         // Write serialized object via MemoryStream to Blob as JSON
         private static void WriteJson(LEIData leiData, Uri outputUri, CloudBlobClient cloudBlobClient)
         {
-            using (var ms = new MemoryStream())
-            using (var sw = new StreamWriter(ms))
+            CloudBlockBlob outputBlob = new CloudBlockBlob(outputUri, cloudBlobClient);
+            using (var sw = new StreamWriter(outputBlob.OpenWriteAsync().Result))
             {
                 JsonSerializer serializer = new JsonSerializer();
                 serializer.Serialize(sw, leiData);
-
-                ms.Position = 0;
-                CloudBlockBlob jsonBlob = new CloudBlockBlob(outputUri, cloudBlobClient);
-                jsonBlob.UploadFromStreamAsync(ms).Wait();
             }
         }
 
@@ -167,16 +155,11 @@ namespace GLEIF.FunctionApp
         // Write serialized object via MemoryStream to Blob as CSV
         private static void WriteCsv(LEIData leiData, Uri outputUri, CloudBlobClient cloudBlobClient)
         {
-            CloudBlockBlob jsonBlob = new CloudBlockBlob(outputUri, cloudBlobClient);
-
-            using (var ms = new MemoryStream())
-            using (var sw = new StreamWriter(ms))
+            CloudBlockBlob outputBlob = new CloudBlockBlob(outputUri, cloudBlobClient);
+            using (var sw = new StreamWriter(outputBlob.OpenWriteAsync().Result))
             {
                 CsvWriter csv = new CsvWriter(sw);
                 csv.WriteRecords(leiData.LEIRecords.LEIRecord);
-
-                ms.Position = 0;
-                jsonBlob.UploadFromStreamAsync(ms).Wait();
             }
         }
     }
