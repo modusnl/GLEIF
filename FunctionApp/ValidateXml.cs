@@ -55,9 +55,7 @@ namespace GLEIF.FunctionApp
             private int _validationKey = 0;
             private string _validationString;
 
-            public List<string> ValidationList { get; set; } = new List<string>();
-
-            public Validator() { ValidationList.Add("Key;Severity;Message"); }
+            public List<string> ValidationList { get; set; } = new List<string> { "Key;Severity;Message" };
 
             // Need to consolidate all Asynchonous EventHandler calls into List<> first
             public void XmlReaderValidationEventHandler(object sender, ValidationEventArgs e)
