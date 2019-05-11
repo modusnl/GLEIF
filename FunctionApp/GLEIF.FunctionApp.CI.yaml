@@ -24,27 +24,27 @@ jobs:
 
   steps:
   - task: DotNetCoreCLI@2
-      displayName: Restore
-      inputs:
+    displayName: Restore
+    inputs:
       command: restore
       projects: '$(Project)'
   
   - task: DotNetCoreCLI@2
-      displayName: Build
-      inputs:
+    displayName: Build
+    inputs:
       projects: '$(Project)'
       arguments: '--configuration $(BuildConfiguration)'
   
   - task: DotNetCoreCLI@2
-      displayName: Test
-      inputs:
+    displayName: Test
+    inputs:
       command: test
       projects: '$(Project)'
       arguments: '--configuration $(BuildConfiguration)'
   
   - task: DotNetCoreCLI@2
-      displayName: Publish
-      inputs:
+    displayName: Publish
+    inputs:
       command: publish
       publishWebProjects: false
       projects: '$(Project)'
@@ -52,6 +52,6 @@ jobs:
       zipAfterPublish: True
   
   - task: PublishBuildArtifacts@1
-      displayName: 'Publish Artifact'
-      inputs:
+    displayName: 'Publish Artifact'
+    inputs:
       PathtoPublish: '$(build.artifactstagingdirectory)'
