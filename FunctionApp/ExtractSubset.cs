@@ -48,6 +48,9 @@ namespace GLEIF.FunctionApp
             logger.LogInformation("Writing .json & .csv files to blob from '{0}'...", blobTrigger);
             WriteJson(_leiData, new Uri(outputBlob.Parent.Uri.AbsoluteUri + '/' + inputBlob.Name.Replace(".xml", ".json")), outputBlob.ServiceClient);
             WriteCsv(_leiData, new Uri(outputBlob.Parent.Uri.AbsoluteUri + '/' + inputBlob.Name.Replace(".xml", ".csv")), outputBlob.ServiceClient);
+
+            // Cleanup memory
+            _leiData = null;
         }
 
 
