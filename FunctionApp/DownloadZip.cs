@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.WindowsAzure.Storage.Blob;
 using System.Net;
+using System.IO;
 
 namespace GLEIF.FunctionApp
 {
@@ -15,7 +16,7 @@ namespace GLEIF.FunctionApp
         [FunctionName("DownloadZip")]
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
-            [Blob("gleif-zip/{rand-guid}", Connection = "GleifBlobStorage")] CloudBlockBlob randomBlob,
+            [Blob("gleif-zip/{rand-guid}", FileAccess.Write, Connection = "GleifBlobStorage")] CloudBlockBlob randomBlob,
             ILogger logger)
         {
             // Construct Uris based on Query Parameter

@@ -15,7 +15,7 @@ namespace GLEIF.FunctionApp
         [FunctionName("ExtractEntity")]
         public static void Run(
             [BlobTrigger("gleif-xml/{name}.xml", Connection = "GleifBlobStorage")/*, Disable()*/] CloudBlockBlob inputBlob,
-            [Blob("gleif-xml-txt/{name}.xml.txt", Connection = "GleifBlobStorage")] CloudBlockBlob outputBlob,
+            [Blob("gleif-xml-txt/{name}.xml.txt", FileAccess.Write, Connection = "GleifBlobStorage")] CloudBlockBlob outputBlob,
             string name,
             string blobTrigger,
             ILogger logger,

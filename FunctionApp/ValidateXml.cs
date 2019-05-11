@@ -14,9 +14,9 @@ namespace GLEIF.FunctionApp
         public static void Run(
             [BlobTrigger("gleif-xml/{name}.xml", Connection = "GleifBlobStorage")/*, Disable()*/] Stream inputStream,
             [Blob("gleif-val/{name}-ValidationResult.csv", FileAccess.Write, Connection = "GleifBlobStorage")] Stream outputStream,
-            [Blob("gleif-xsd/header-extension.2.0.xsd", Connection = "GleifBlobStorage")] CloudBlockBlob xsdHeader,
-            [Blob("gleif-xsd/2017-03-21_lei-cdf-v2-1.xsd", Connection = "GleifBlobStorage")] CloudBlockBlob xsdLEIData,
-            [Blob("gleif-xsd/w3.xml.1998.xsd", Connection = "GleifBlobStorage")] CloudBlockBlob xsdNS,
+            [Blob("gleif-xsd/header-extension.2.0.xsd", FileAccess.Read, Connection = "GleifBlobStorage")] CloudBlockBlob xsdHeader,
+            [Blob("gleif-xsd/2017-03-21_lei-cdf-v2-1.xsd", FileAccess.Read, Connection = "GleifBlobStorage")] CloudBlockBlob xsdLEIData,
+            [Blob("gleif-xsd/w3.xml.1998.xsd", FileAccess.Read, Connection = "GleifBlobStorage")] CloudBlockBlob xsdNS,
             string name,
             string blobTrigger,
             ILogger logger,

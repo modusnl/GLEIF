@@ -16,7 +16,7 @@ namespace GLEIF.FunctionApp
         [FunctionName("ExtractSubset")]
         public static void Run(
             [BlobTrigger("gleif-xml/{name}lei2.xml", Connection = "GleifBlobStorage")/*, Disable()*/] CloudBlockBlob inputBlob,
-            [Blob("gleif-xml/{name}", Connection = "GleifBlobStorage")] CloudBlockBlob outputBlob,
+            [Blob("gleif-xml/{name}", FileAccess.Write, Connection = "GleifBlobStorage")] CloudBlockBlob outputBlob,
             string name,
             string blobTrigger,
             ILogger logger,
