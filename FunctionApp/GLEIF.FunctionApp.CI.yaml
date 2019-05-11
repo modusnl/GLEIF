@@ -1,0 +1,57 @@
+# using standard name pattern
+name: $(BuildDefinitionName)_$(Date:yyyyMMdd).$(Rev:.r)
+
+# local template variables
+variables:
+ Project: 'GLEIF.FunctionApp.csproj'
+ BuildConfiguration: 'release'
+
+# filter trigger down to specific solution folder
+trigger:
+  branches:
+    include:
+    - master
+  paths:
+    include:
+    - FunctionApp/*
+
+# Build Definition
+jobs:
+- job: VSBuildAndAzureRmRelease
+  displayName: Visual Studio Build
+  pool:
+    name: Hosted Windows 2019 with VS2019
+
+  steps:
+  - task: DotNetCoreCLI@2
+      displayName: Restore
+      inputs:
+      command: restore
+      projects: '$(Project)'
+  
+  - task: DotNetCoreCLI@2
+      displayName: Build
+      inputs:
+      projects: '$(Project)'
+      arguments: '--configuration $(BuildConfiguration)'
+  
+  - task: DotNetCoreCLI@2
+      displayName: Test
+      inputs:
+      command: test
+      projects: '$(Project)'
+      arguments: '--configuration $(BuildConfiguration)'
+  
+  - task: DotNetCoreCLI@2
+      displayName: Publish
+      inputs:
+      command: publish
+      publishWebProjects: false
+      projects: '$(Project)'
+      arguments: '--configuration $(BuildConfiguration) --output $(build.artifactstagingdirectory)'
+      zipAfterPublish: True
+  
+  - task: PublishBuildArtifacts@1
+      displayName: 'Publish Artifact'
+      inputs:
+      PathtoPublish: '$(build.artifactstagingdirectory)'
