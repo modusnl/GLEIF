@@ -11,28 +11,28 @@ using CsvHelper;
 
 namespace GLEIF.FunctionApp
 {
-    public class ExtractSubset
+    public static class ExtractSubset
     {
         [FunctionName("ExtractSubset")]
         public static void Run(
-            [BlobTrigger("gleif-xml/{name}lei2.xml", Connection = "GleifBlobStorage")] CloudBlockBlob inputBlob,
+            [BlobTrigger("gleif-xml/{name}lei2.xml", Connection = "GleifBlobStorage")/*, Disable()*/] CloudBlockBlob inputBlob,
             [Blob("gleif-xml/{name}", Connection = "GleifBlobStorage")] CloudBlockBlob outputBlob,
             string name,
             string blobTrigger,
             ILogger logger,
             ExecutionContext context)
         {
-            logger.LogInformation("Extracting subsets from {0}...", blobTrigger);
+            logger.LogInformation("Extracting subsets from '{0}'...", blobTrigger);
 
             // local variable leiData as LEIData Object (classes generated from XSD using XSD.exe)
             LEIData _leiData;
 
             // Read Xml into LEIData object
-            logger.LogInformation("Serializing inputStream into LEIData object from {0}...", blobTrigger);
+            logger.LogInformation("Serializing inputStream into LEIData object from '{0}'...", blobTrigger);
             _leiData = ReadXml(inputBlob.OpenReadAsync().Result);
 
             // Write Top records  (using LINQ filtering)
-            logger.LogInformation("Writing TopN.xml files to blob from {0}...", blobTrigger);
+            logger.LogInformation("Writing TopN.xml files to blob from '{0}'...", blobTrigger);
             WriteXmlTopN(_leiData, new Uri(outputBlob.Parent.Uri.AbsoluteUri + '/' + inputBlob.Name.Replace(".xml", "-Top10.xml")), outputBlob.ServiceClient, 10);
             WriteXmlTopN(_leiData, new Uri(outputBlob.Parent.Uri.AbsoluteUri + '/' + inputBlob.Name.Replace(".xml", "-Top100.xml")), outputBlob.ServiceClient, 100);
             WriteXmlTopN(_leiData, new Uri(outputBlob.Parent.Uri.AbsoluteUri + '/' + inputBlob.Name.Replace(".xml", "-Top1000.xml")), outputBlob.ServiceClient, 1000);
@@ -40,12 +40,12 @@ namespace GLEIF.FunctionApp
             WriteXmlTopN(_leiData, new Uri(outputBlob.Parent.Uri.AbsoluteUri + '/' + inputBlob.Name.Replace(".xml", "-Top100000.xml")), outputBlob.ServiceClient, 100000);
 
             // Write Country (using LINQ filtering)
-            logger.LogInformation("Writing Country.xml files to blob from {0}...", blobTrigger);
+            logger.LogInformation("Writing Country.xml files to blob from '{0}'...", blobTrigger);
             WriteXmlCountry(_leiData, new Uri(outputBlob.Parent.Uri.AbsoluteUri + '/' + inputBlob.Name.Replace(".xml", "-NL.xml")), outputBlob.ServiceClient, "NL");
             WriteXmlCountry(_leiData, new Uri(outputBlob.Parent.Uri.AbsoluteUri + '/' + inputBlob.Name.Replace(".xml", "-PT.xml")), outputBlob.ServiceClient, "PT");
 
             // Write other formats
-            logger.LogInformation("Writing .json & .csv files to blob from {0}...", blobTrigger);
+            logger.LogInformation("Writing .json & .csv files to blob from '{0}'...", blobTrigger);
             WriteJson(_leiData, new Uri(outputBlob.Parent.Uri.AbsoluteUri + '/' + inputBlob.Name.Replace(".xml", ".json")), outputBlob.ServiceClient);
             WriteCsv(_leiData, new Uri(outputBlob.Parent.Uri.AbsoluteUri + '/' + inputBlob.Name.Replace(".xml", ".csv")), outputBlob.ServiceClient);
         }

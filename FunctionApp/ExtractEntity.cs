@@ -14,7 +14,7 @@ namespace GLEIF.FunctionApp
     {
         [FunctionName("ExtractEntity")]
         public static void Run(
-            [BlobTrigger("gleif-xml/{name}.xml", Connection = "GleifBlobStorage")] CloudBlockBlob inputBlob,
+            [BlobTrigger("gleif-xml/{name}.xml", Connection = "GleifBlobStorage")/*, Disable()*/] CloudBlockBlob inputBlob,
             [Blob("gleif-xml-txt/{name}.xml.txt", Connection = "GleifBlobStorage")] CloudBlockBlob outputBlob,
             string name,
             string blobTrigger,
@@ -29,10 +29,10 @@ namespace GLEIF.FunctionApp
             };
 
             Parallel.ForEach(elementNames, (elementName) =>
-            {
-                logger.LogInformation("Extracting entity {0} from {1}...", elementName, blobTrigger);
+                {
+                    logger.LogInformation("Extracting '{0}' from '{1}'...", elementName, blobTrigger);
 
-                var outputUri = new Uri(outputBlob.Parent.Uri.AbsoluteUri + '/' + name + '.' + elementName.Replace(":", ".") + ".xml.txt");
+                    var outputUri = new Uri(outputBlob.Parent.Uri.AbsoluteUri + '/' + name + '.' + elementName.Replace(":", ".") + ".xml.txt");
                     CloudBlockBlob entityBlob = new CloudBlockBlob(outputUri, outputBlob.ServiceClient);
 
                     // use XML Reader & Writer for streaming the XML to keep memory usage to a minimum
@@ -59,6 +59,8 @@ namespace GLEIF.FunctionApp
                             }
                         }
                     }
+
+                    logger.LogInformation("Extracted '{0}' from '{1}'", elementName, blobTrigger);
                 }
             );
         }

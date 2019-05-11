@@ -8,11 +8,11 @@ using Microsoft.WindowsAzure.Storage.Blob;
 
 namespace GLEIF.FunctionApp
 {
-    public class ValidateXml
+    public static class ValidateXml
     {
         [FunctionName("ValidateXml")]
         public static void Run(
-            [BlobTrigger("gleif-xml/{name}.xml", Connection = "GleifBlobStorage")] Stream inputStream,
+            [BlobTrigger("gleif-xml/{name}.xml", Connection = "GleifBlobStorage")/*, Disable()*/] Stream inputStream,
             [Blob("gleif-val/{name}-ValidationResult.csv", FileAccess.Write, Connection = "GleifBlobStorage")] Stream outputStream,
             [Blob("gleif-xsd/header-extension.2.0.xsd", Connection = "GleifBlobStorage")] CloudBlockBlob xsdHeader,
             [Blob("gleif-xsd/2017-03-21_lei-cdf-v2-1.xsd", Connection = "GleifBlobStorage")] CloudBlockBlob xsdLEIData,
@@ -22,7 +22,7 @@ namespace GLEIF.FunctionApp
             ILogger logger,
             ExecutionContext context)
         {
-            logger.LogInformation("Validating {0}...", blobTrigger);
+            logger.LogInformation("Validating '{0}'...", blobTrigger);
 
             // Load validation schemas from Blob
             XmlReaderSettings readerSettings = new XmlReaderSettings();

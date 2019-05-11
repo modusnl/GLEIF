@@ -1,5 +1,5 @@
 ﻿# Prepare variables
-$fileDate = '20180901'
+$fileDate = '20190501'
 $url = "https://leidata.gleif.org/api/v1/concatenated-files/lei2/$fileDate/zip"
 $outFile = ".\$fileDate-gleif-concatenated-file-lei2.xml.zip"
 

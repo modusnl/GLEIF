@@ -7,11 +7,11 @@ using System.IO.Compression;
 
 namespace GLEIF.FunctionApp
 {
-    public class DeflateZip
+    public static class DeflateZip
     {
         [FunctionName("DeflateZip")]
         public static void Run(
-            [BlobTrigger("gleif-zip/{name}.zip", Connection = "GleifBlobStorage")] CloudBlockBlob inputBlob,
+            [BlobTrigger("gleif-zip/{name}.zip", Connection = "GleifBlobStorage")/*, Disable()*/] CloudBlockBlob inputBlob,
             [Blob("gleif-xml/{name}", Connection = "GleifBlobStorage")] CloudBlockBlob outputBlob,
             string name, 
             string blobTrigger,
