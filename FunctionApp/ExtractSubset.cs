@@ -49,8 +49,9 @@ namespace GLEIF.FunctionApp
             WriteJson(_leiData, new Uri(outputBlob.Parent.Uri.AbsoluteUri + '/' + inputBlob.Name.Replace(".xml", ".json")), outputBlob.ServiceClient);
             WriteCsv(_leiData, new Uri(outputBlob.Parent.Uri.AbsoluteUri + '/' + inputBlob.Name.Replace(".xml", ".csv")), outputBlob.ServiceClient);
 
-            // Cleanup memory
+            // Cleanup memory & force Garbage Collection
             _leiData = null;
+            GC.Collect();
         }
 
 
