@@ -18,9 +18,7 @@ namespace GLEIF.FunctionApp
             ILogger logger,
             ExecutionContext context)
         {
-            // intentionally absorb complete BlobStream in memory first, 
-            // so the ZipArchive doesn't have to wait on a series of blob reads
-            using (Stream inputBlobStream = inputBlob.OpenReadAsync().GetAwaiter().GetResult())
+            using (Stream inputBlobStream = inputBlob.OpenReadAsync().Result)
             using (ZipArchive archive = new ZipArchive(inputBlobStream, ZipArchiveMode.Read))
             {
                 logger.LogInformation("Extracting {0} files from '{1}'...", archive.Entries.Count, blobTrigger);
