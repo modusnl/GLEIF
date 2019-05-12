@@ -3,7 +3,7 @@ name: $(BuildDefinitionName)_$(Date:yyyyMMdd).$(Rev:.r)
 
 # local template variables
 variables:
- Project: 'GLEIF.FunctionApp.csproj'
+ Project: 'FunctionApp/GLEIF.FunctionApp.csproj'
  BuildConfiguration: 'release'
 
 # filter trigger down to specific solution folder
@@ -27,7 +27,7 @@ jobs:
     displayName: Restore
     inputs:
       command: restore
-      projects: '**/*.csproj'
+      projects: '$(Project)'
   
   - task: DotNetCoreCLI@2
     displayName: Build
