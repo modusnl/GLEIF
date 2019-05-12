@@ -17,7 +17,7 @@ trigger:
 
 # Build Definition
 jobs:
-- job: VSBuildAndAzureRmRelease
+- job: VSBuild
   displayName: Visual Studio Build
   pool:
     name: Hosted Windows 2019 with VS2019
