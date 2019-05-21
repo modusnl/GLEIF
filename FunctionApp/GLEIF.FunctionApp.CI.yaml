@@ -3,7 +3,7 @@ name: $(BuildDefinitionName)_$(Date:yyyyMMdd).$(Rev:.r)
 
 # local template variables
 variables:
- Project: 'GLEIF.FunctionApp.csproj'
+ Project: 'FunctionApp/GLEIF.FunctionApp.csproj'
  BuildConfiguration: 'release'
 
 # filter trigger down to specific solution folder
@@ -17,34 +17,34 @@ trigger:
 
 # Build Definition
 jobs:
-- job: VSBuildAndAzureRmRelease
+- job: VSBuild
   displayName: Visual Studio Build
   pool:
     name: Hosted Windows 2019 with VS2019
 
   steps:
   - task: DotNetCoreCLI@2
-      displayName: Restore
-      inputs:
+    displayName: Restore
+    inputs:
       command: restore
       projects: '$(Project)'
   
   - task: DotNetCoreCLI@2
-      displayName: Build
-      inputs:
+    displayName: Build
+    inputs:
       projects: '$(Project)'
       arguments: '--configuration $(BuildConfiguration)'
   
   - task: DotNetCoreCLI@2
-      displayName: Test
-      inputs:
+    displayName: Test
+    inputs:
       command: test
       projects: '$(Project)'
       arguments: '--configuration $(BuildConfiguration)'
   
   - task: DotNetCoreCLI@2
-      displayName: Publish
-      inputs:
+    displayName: Publish
+    inputs:
       command: publish
       publishWebProjects: false
       projects: '$(Project)'
@@ -52,6 +52,6 @@ jobs:
       zipAfterPublish: True
   
   - task: PublishBuildArtifacts@1
-      displayName: 'Publish Artifact'
-      inputs:
+    displayName: 'Publish Artifact'
+    inputs:
       PathtoPublish: '$(build.artifactstagingdirectory)'
