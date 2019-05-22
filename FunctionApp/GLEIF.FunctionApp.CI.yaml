@@ -5,6 +5,8 @@ name: $(BuildDefinitionName)_$(Date:yyyyMMdd).$(Rev:.r)
 variables:
  Project: 'FunctionApp/GLEIF.FunctionApp.csproj'
  BuildConfiguration: 'release'
+ SubscriptionName: 'Modus VS Enterprise'
+ AppName: 'Modus-FAnet'
 
 # filter trigger down to specific solution folder
 trigger:
@@ -15,43 +17,64 @@ trigger:
     include:
     - FunctionApp/*
 
-# Build Definition
-jobs:
-- job: VSBuild
-  displayName: Visual Studio Build
-  pool:
-    name: Hosted Windows 2019 with VS2019
+stages:
+# Build
+- stage: Build
+  jobs:
+  - job: VSBuild
+    displayName: Visual Studio Build
+    pool:
+      name: Hosted Windows 2019 with VS2019
 
-  steps:
-  - task: DotNetCoreCLI@2
-    displayName: Restore
-    inputs:
-      command: restore
-      projects: '$(Project)'
-  
-  - task: DotNetCoreCLI@2
-    displayName: Build
-    inputs:
-      projects: '$(Project)'
-      arguments: '--configuration $(BuildConfiguration)'
-  
-  - task: DotNetCoreCLI@2
-    displayName: Test
-    inputs:
-      command: test
-      projects: '$(Project)'
-      arguments: '--configuration $(BuildConfiguration)'
-  
-  - task: DotNetCoreCLI@2
-    displayName: Publish
-    inputs:
-      command: publish
-      publishWebProjects: false
-      projects: '$(Project)'
-      arguments: '--configuration $(BuildConfiguration) --output $(build.artifactstagingdirectory)'
-      zipAfterPublish: True
-  
-  - task: PublishBuildArtifacts@1
-    displayName: 'Publish Artifact'
-    inputs:
-      PathtoPublish: '$(build.artifactstagingdirectory)'
+    steps:
+    - task: DotNetCoreCLI@2
+      displayName: Restore
+      inputs:
+        command: restore
+        projects: '$(Project)'
+    
+    - task: DotNetCoreCLI@2
+      displayName: Build
+      inputs:
+        projects: '$(Project)'
+        arguments: '--configuration $(BuildConfiguration)'
+    
+    - task: DotNetCoreCLI@2
+      displayName: Test
+      inputs:
+        command: test
+        projects: '$(Project)'
+        arguments: '--configuration $(BuildConfiguration)'
+    
+    - task: DotNetCoreCLI@2
+      displayName: Publish
+      inputs:
+        command: publish
+        publishWebProjects: false
+        projects: '$(Project)'
+        arguments: '--configuration $(BuildConfiguration) --output $(build.artifactstagingdirectory)'
+        zipAfterPublish: True
+    
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish Artifact'
+      inputs:
+        PathtoPublish: '$(build.artifactstagingdirectory)'
+
+# Deploy
+- stage: Deploy
+  jobs:
+  - job: VSBuild
+    displayName: Visual Studio Build
+    pool:
+      name: Hosted Windows 2019 with VS2019
+
+    steps:
+    - task: AzureFunctionApp@1
+      displayName: 'Deploy Azure Function App'
+      inputs:
+        azureSubscription: '$(SubscriptionName)'
+        appType: 'Function App on Windows'
+        appName: '$(Modus-FAnet)'
+
+# Deploy QA   
+# Deploy Prod         
