@@ -1,6 +1,6 @@
 # GLEIF (multi GB Xml-handling)
 
-This project demonstrates various processing approaches for handling large Xml files, using the publicly available GLEIF dataset.
+This project demonstrates various processing approaches for handling large Xml files, using the publicly available LEI2 dataset.
 
 ## Architecture
 
@@ -16,7 +16,7 @@ See [FunctionApp](./FunctionApp/Readme.md) for the Functions which are hosting t
 
 See [Database](./Database/Readme.md) for the T-SQL approaches
 
-See [DataLake](./DataLake/Readme.md) for the U-SQL approaches ***-> outdated approach, use FunctionApp instead ***
+See [DataLake](./DataLake/Readme.md) for the U-SQL approaches **-> outdated approach, use FunctionApp instead**
 
 See [Databricks](./Databricks/Readme.md) for the Spark approaches
 
