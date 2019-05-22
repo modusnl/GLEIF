@@ -9,10 +9,12 @@ use `npm install -g azure-functions-core-tools` over Chocolatey, because Chocola
 
 ## CI/CD
 
-- see [GLEIF.FunctionApp.CI.yaml](./GLEIF.FunctionApp.CI.yaml) for Continuous Integration as code
-- Continuous Delivery is implemented through Azure DevOps Release, as of now not yet availble through YAML
+[![CI/CD Status](https://dev.azure.com/modusnl/Modus/_apis/build/status/GLEIF.FunctionApp.CI?branchName=master)](https://dev.azure.com/modusnl/Modus/_build/latest?definitionId=4&branchName=master)
+
+see [GLEIF.FunctionApp.yaml](./GLEIF.FunctionApp.yaml) for multi-stage YAML pipeline which performs both Build & Deploy
 
 ## References
 
 - https://azure.microsoft.com/en-us/blog/understanding-serverless-cold-start
 - https://azure.microsoft.com/nl-nl/blog/announcing-the-azure-functions-premium-plan-for-enterprise-serverless-workloads/
+- https://devblogs.microsoft.com/devops/whats-new-with-azure-pipelines/
