@@ -2,17 +2,23 @@
 
 This project demonstrates various processing approaches for handling large Xml files, using the publicly available GLEIF dataset.
 
+## Architecture
+
+![FunctionApp](./Documentation/FunctionApp.png) "Logo Title Text 2"
+
 ## Projects
 
-See [Data](/Data/Readme.md) for scripts used for downloading the Data from the public API endpoint, and uploading the files to the Data Lake Store.
+See [Data](./Data/Readme.md) for scripts used for downloading the Data from the public API endpoint, and uploading the files to the Data Lake Store.
 
-See [ConsoleApp](/ConsoleApp/Readme.md) for the .NET Core CommandLineApp as a starting point for deriving some smaller files off the big Xml and lots of valuable .NET methods for Reading, Writing, Validating, Serializing Xml.
+See [ConsoleApp](./ConsoleApp/Readme.md) for the .NET Core CommandLineApp as a starting point for deriving some smaller files off the big Xml and lots of valuable .NET methods for Reading, Writing, Validating, Serializing Xml.
 
-See [Database](/Database/Readme.md) for the T-SQL approaches
+See [FunctionApp](./FunctionApp/Readme.md) for the Functions which are hosting the .NET Core snippets and which are (mostly) triggered by new Blob events
 
-See [DataLake](/DataLake/Readme.md) for the U-SQL approaches
+See [Database](./Database/Readme.md) for the T-SQL approaches
 
-See [Databricks](/Databricks/Readme.md) for the Spark approaches
+See [DataLake](./DataLake/Readme.md) for the U-SQL approaches ***-> outdated approach, use FunctionApp instead ***
+
+See [Databricks](./Databricks/Readme.md) for the Spark approaches
 
 ## GLEIF
 
@@ -22,7 +28,7 @@ LEI data is a good open data source for demonstrating multi GB Xml-handling, whi
 
 ## Data
 
-Run [Download-LEI2.ps1](/Data/Download-LEI2.ps1) for downloading the 155 mb Zip file and extracting the 2.6 GB Xml file
+Run [Download-LEI2.ps1](./Data/Download-LEI2.ps1) for downloading the 155 mb Zip file and extracting the 2.6 GB Xml file
 
 About the LEI data format: [LEI Level 1 data CDF v2.1](https://www.gleif.org/en/about-lei/common-data-file-format/lei-cdf-format/lei-cdf-format-version-2-1)
 
