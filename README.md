@@ -4,7 +4,7 @@ This project demonstrates various processing approaches for handling large Xml f
 
 ## Architecture
 
-![FunctionApp](./Documentation/FunctionApp.png) "Logo Title Text 2"
+![FunctionApp](./Documentation/FunctionApp.png)
 
 ## Projects
 
