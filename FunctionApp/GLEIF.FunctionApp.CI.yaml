@@ -64,19 +64,25 @@ stages:
 - stage: Deploy
   dependsOn: Build
   jobs:
-  - job: VSBuild
-    displayName: Visual Studio Build
+  - job: AFDeploy
+    displayName: Deploy Azure Function App
     pool:
       name: Hosted Windows 2019 with VS2019
 
     steps:
+    - task: DownloadBuildArtifacts@0
+      inputs:
+        buildType: 'current'
+        downloadType: 'single'
+        downloadPath: '$(System.ArtifactsDirectory)'
+
     - task: AzureFunctionApp@1
       displayName: 'Deploy Azure Function App'
       inputs:
         azureSubscription: '$(SubscriptionName)'
         appType: functionApp
         appName: '$(AppName)'
-        package: '$(build.artifactstagingdirectory)/**/*.zip'
+        package: '$(System.ArtifactsDirectory)/**/*.zip'
 
 # Deploy QA
 # Deploy Prod
