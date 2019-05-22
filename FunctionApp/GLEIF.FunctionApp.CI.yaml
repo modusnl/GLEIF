@@ -62,6 +62,7 @@ stages:
 
 # Deploy
 - stage: Deploy
+  dependsOn: Build
   jobs:
   - job: VSBuild
     displayName: Visual Studio Build
@@ -73,8 +74,8 @@ stages:
       displayName: 'Deploy Azure Function App'
       inputs:
         azureSubscription: '$(SubscriptionName)'
-        appType: 'Function App on Windows'
+        appType: functionApp
         appName: '$(Modus-FAnet)'
 
-# Deploy QA   
-# Deploy Prod         
+# Deploy QA
+# Deploy Prod
