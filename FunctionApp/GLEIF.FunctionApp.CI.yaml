@@ -75,7 +75,7 @@ stages:
       inputs:
         azureSubscription: '$(SubscriptionName)'
         appType: functionApp
-        appName: '$(Modus-FAnet)'
+        appName: '$(AppName)'
 
 # Deploy QA
 # Deploy Prod
