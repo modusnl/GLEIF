@@ -76,6 +76,7 @@ stages:
         azureSubscription: '$(SubscriptionName)'
         appType: functionApp
         appName: '$(AppName)'
+        package: '$(build.artifactstagingdirectory)/**/*.zip'
 
 # Deploy QA
 # Deploy Prod
