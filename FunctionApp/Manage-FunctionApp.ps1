@@ -1,4 +1,4 @@
-﻿Select-AzSubscription -Name "Modus Azure Sponsorship (Silver Cloud Platform)"
+﻿Get-AzSubscription -SubscriptionName "Modus VS Enterprise" | Set-AzContext
 $resourceGroup = 'Modus-FA'
 $FunctionAppName = 'Modus-FAnet'
 $ServicePlanName = 'AppServicePlanWinWEU-EP'
@@ -15,7 +15,9 @@ Get-AzAppServicePlan -ResourceGroupName $resourceGroup
 # Create
 #https://docs.microsoft.com/nl-nl/azure/azure-functions/functions-premium-plan
 az login
+az account set --subscription "Modus VS Enterprise"
 az functionapp plan create -g $resourceGroup -n $ServicePlanName -l westeurope --number-of-workers 1 --sku EP1
+#az functionapp plan create -g $resourceGroup -n "ConsumptionPlanWEU" -l westeurope --sku Y1 --help --> Invalid SKU
 az functionapp create -g $resourceGroup  -p $ServicePlanName -n $FunctionAppName  -s $StorageAccountName
 
 # Config
