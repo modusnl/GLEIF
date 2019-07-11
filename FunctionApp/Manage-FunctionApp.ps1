@@ -20,21 +20,8 @@ az functionapp plan create -g $resourceGroup -n $ServicePlanName -l westeurope -
 #az functionapp plan create -g $resourceGroup -n "ConsumptionPlanWEU" -l westeurope --sku Y1 --help --> Invalid SKU
 az functionapp create -g $resourceGroup  -p $ServicePlanName -n $FunctionAppName  -s $StorageAccountName
 
-# Config
+# Function App Config
 Set-AzWebApp -Name $FunctionAppName -ResourceGroupName $resourceGroup -Use32BitWorkerProcess $false -HttpsOnly $true -AssignIdentity $true 
-
-# Set Function app settings
-$functionAppSettings = @{
-    APPINSIGHTS_INSTRUMENTATIONKEY='a9e7bcef-56f0-4bb3-9dd2-444cbcc4127e'
-    GleifBlobStorage = $StorageAccountConnectionString 
-}
-$setWebAppParams = @{
-    Name = $FunctionAppName
-    ResourceGroupName = $resourceGroup
-    AppSettings = $functionAppSettings
-}
-$webApp = Set-AzureRmWebApp @setWebAppParams
-$webApp = Set-AzureRmWebApp -Name $FunctionAppName -ResourceGroupName $resourceGroup -AppSettings @functionAppSettings
 
 # Change to Consumption Plan
 Set-AzWebApp -Name $FunctionAppName  -ResourceGroupName $resourceGroup -AppServicePlan $ConsumptionPlanName

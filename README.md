@@ -16,9 +16,9 @@ See [FunctionApp](./FunctionApp/Readme.md) for the Functions which are hosting t
 
 See [Database](./Database/Readme.md) for the T-SQL approaches
 
-See [DataLake](./DataLake/Readme.md) for the U-SQL approaches **-> outdated approach, use FunctionApp instead**
-
 See [Databricks](./Databricks/Readme.md) for the Spark approaches
+
+~~See [DataLake](./DataLake/Readme.md) for the U-SQL approaches~~ **-> outdated approach, use FunctionApp & Databricks instead**
 
 ## GLEIF
 

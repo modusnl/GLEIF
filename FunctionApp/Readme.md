@@ -2,6 +2,13 @@
 
 use `npm install -g azure-functions-core-tools` over Chocolatey, because Chocolatey installs 32-bit version...
 
+## Functions
+- When running locally, ensure the following AppSettings are present:
+  - GleifBlobStorage
+  - GleifSQLConnectionString
+  - SendGridAPIKey
+- LoadSQL uses the new [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient/) as that's the [*"new flagship data access driver for SQL Server going forward"*](https://devblogs.microsoft.com/dotnet/introducing-the-new-microsoftdatasqlclient/)
+
 ## Running on Azure
 
 - deploy using ZipDeploy
