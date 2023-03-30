@@ -24,7 +24,7 @@ stages:
   - job: VSBuild
     displayName: Visual Studio Build
     pool:
-      name: windows-latest
+      vmImage: windows-latest
 
     steps:
     - task: DotNetCoreCLI@2
@@ -69,7 +69,7 @@ stages:
   - job: AFDeploy
     displayName: Deploy Azure Function App
     pool:
-      name: windows-latest
+      vmImage: windows-latest
 
     steps:
     - task: DownloadBuildArtifacts@0
